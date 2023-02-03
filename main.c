@@ -43,6 +43,12 @@
 
 #include "mcc_generated_files/mcc.h"
 #include <stdint.h>
+#include "match.h"
+
+uint16_t BOTON1MIN;
+uint16_t BOTON2MIN;
+uint16_t HUMBRAL;
+
 
 const uint16_t DCmin = 375;
 const uint16_t DCmaxCW = 250;
