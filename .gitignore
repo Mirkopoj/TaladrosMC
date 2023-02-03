@@ -28,3 +28,6 @@
 # Misc
 .svn
 *.bak
+
+#Nvim specific
+compile_flags.txt
