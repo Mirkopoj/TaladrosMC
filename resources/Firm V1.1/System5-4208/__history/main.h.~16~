@@ -1,0 +1,5 @@
+#include <16F1503.h>
+#device ADC=10
+//#use delay(internal=2000000)
+
+setup_oscillator(OSC_16MHZ | OSC_INTRC);

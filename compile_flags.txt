@@ -1,0 +1,5 @@
+-I/opt/microchip/xc8/v2.40/pic/include
+-I/opt/microchip/xc8/v2.40/pic/include/legacy
+-I/opt/microchip/xc8/v2.40/pic/include/proc
+-includebuiltins.h
+-D_16F1503=1

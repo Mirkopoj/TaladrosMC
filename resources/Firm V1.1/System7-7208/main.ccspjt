@@ -1,0 +1,150 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F1503
+CCSVerions=5.076
+Compiler=PCM
+CCSVersion=5.076
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\DRIVE\00 - PROYECTOS\01 - Vigentes\Taladro quirurgico\Firmware\CCS\Parciales\PWM\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=6
+D1=26-09-2022
+D1_L=18
+D1_L1=[54898]Project Opened.
+D1_L2=[54976]Started Editing.
+D1_L3=[55714]Stopped Editing.
+D1_L4=[55951]Started Editing.
+D1_L5=[55993]Stopped Editing.
+TotalEdit=200
+TotalDebug=0
+D1_E=72
+D1_D=0
+D1_L6=[55993]Project Closed.
+D1_L7=[56026]Project Opened.
+D1_L8=[56125]Project Closed.
+D1_L9=[56180]Project Opened.
+D1_L10=[56191]Started Editing.
+D1_L11=[56913]Stopped Editing.
+D1_L12=[56935]Started Editing.
+D1_L13=[59114]Stopped Editing.
+D1_L14=[59251]Started Editing.
+D1_L15=[60789]Stopped Editing.
+D1_L16=[70647]Started Editing.
+D1_L17=[71138]Stopped Editing.
+D1_L18=[73557]Project Closed.
+D2=28-09-2022
+D2_L=32
+D2_L1=[53275]Project Opened.
+D2_L2=[53477]Started Editing.
+D2_L3=[53778]Stopped Editing.
+D2_L4=[54930]Started Editing.
+D2_L5=[55621]Stopped Editing.
+D2_L6=[56159]Started Editing.
+D2_L7=[56502]Stopped Editing.
+D2_L8=[58211]Started Editing.
+D2_L9=[58569]Stopped Editing.
+D2_L10=[58753]Started Editing.
+D2_L11=[59257]Stopped Editing.
+D2_L12=[60263]Started Editing.
+D2_L13=[60574]Stopped Editing.
+D2_L14=[64569]Started Editing.
+D2_L15=[64870]Stopped Editing.
+D2_L16=[65066]Started Editing.
+D2_L17=[65787]Stopped Editing.
+D2_L18=[67565]Started Editing.
+D2_L19=[68294]Stopped Editing.
+D2_L20=[68368]Started Editing.
+D2_L21=[68790]Stopped Editing.
+D2_L22=[69977]Started Editing.
+D2_L23=[71033]Stopped Editing.
+D2_E=55
+D2_D=0
+D2_L24=[71033]Project Closed.
+D2_L25=[72135]Project Opened.
+D2_L26=[72177]Started Editing.
+D2_L27=[72641]Stopped Editing.
+D2_L28=[72963]Started Editing.
+D2_L29=[73302]Stopped Editing.
+D2_L30=[73407]Started Editing.
+D2_L31=[74026]Stopped Editing.
+D2_L32=[74108]Project Closed.
+D3=01-10-2022
+D3_L=14
+D3_L1=[45716]Project Opened.
+D3_L2=[45845]Started Editing.
+D3_L3=[46288]Stopped Editing.
+D3_L4=[46358]Started Editing.
+D3_L5=[47031]Stopped Editing.
+D3_L6=[47403]Started Editing.
+D3_L7=[47885]Stopped Editing.
+D3_L8=[50590]Started Editing.
+D3_L9=[51246]Stopped Editing.
+D3_L10=[51536]Started Editing.
+D3_L11=[52885]Stopped Editing.
+D3_L12=[58817]Started Editing.
+D3_L13=[59026]Stopped Editing.
+D3_E=39
+D3_D=0
+D3_L14=[59026]Project Closed.
+D4=12-10-2022
+D4_L=2
+D4_L1=[66260]Project Opened.
+D4_L2=[66318]Project Closed.
+D5=05-11-2022
+D5_L=6
+D5_L1=[37638]Project Opened.
+D5_L2=[37693]Project Closed.
+D5_L3=[43833]Project Opened.
+D5_L4=[53730]Started Editing.
+D5_L5=[54410]Stopped Editing.
+D5_E=12
+D5_D=0
+D5_L6=[54410]Project Closed.
+D6=01-02-2023
+D6_L=17
+D6_L1=[60377]Started Editing.
+D6_L2=[60386]Stopped Editing.
+D6_E=22
+D6_D=0
+D6_L3=[60386]Project Closed.
+D6_L4=[60403]Project Opened.
+D6_L5=[60474]Started Editing.
+D6_L6=[60906]Stopped Editing.
+D6_L7=[61396]Started Editing.
+D6_L8=[62287]Stopped Editing.
+D6_L9=[62344]Started Editing.
+D6_L10=[62769]Stopped Editing.
+D6_L11=[66512]Started Editing.
+D6_L12=[66832]Stopped Editing.
+D6_L13=[66954]Started Editing.
+D6_L14=[67328]Stopped Editing.
+D6_L15=[73823]Started Editing.
+D6_L16=[74133]Stopped Editing.
+D6_L17=[74133]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=49
+Count=3
+2=main.h
+t2=1
+3=..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1503.h
+t3=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=85
+[Units]
+Count=1
+1=main (main)
