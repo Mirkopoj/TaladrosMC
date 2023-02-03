@@ -47,7 +47,7 @@
 
 uint16_t BOTON1MIN;
 uint16_t BOTON2MIN;
-uint16_t HUMBRAL;
+uint16_t HUMBRAL = 10;
 
 
 const uint16_t DCmin = 375;
@@ -75,39 +75,49 @@ int main(void) {
    }
    C1i = (C1s/5);
    C2i = (C2s/5);
+	BOTON1MIN = C1i;
+	BOTON2MIN = C2i;
    C1s = 0;
    C2s = 0;
    
    __delay_ms(200);
 
 	while (1) {
+
       C1 = ADC_GetConversion(hallC1);
       C2 = ADC_GetConversion(hallC2);
       
-      if(C1 > (C1i + 3)) {
-         while(C1 > (C1i + 10)) {
-            C1 = ADC_GetConversion(hallC1);
-            dc = 895 - C1;
-            __delay_us(25);
-            if (dc<DCmaxCW){dc=DCmaxCW;}
-            if (dc>DCmin){dc=DCmin;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else if(C2 > (C2i + 10)) {
+		match(C1, C2) {
+			case NingunBoton:
+				dc = 375;
+				break;
 
-         while(C2 > (C2i + 3)) {
-            C2 = ADC_GetConversion(hallC2);
-            dc = C2 - 145;
-            __delay_us(25);
-            if (dc<DCmin) {dc=DCmin;}
-            if (dc>DCmaxCCW) {dc=DCmaxCCW;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else {
-         dc = 375;
-      }
+			case SentidoHorario:
+				while(C1 > (C1i + 10)) {
+					C1 = ADC_GetConversion(hallC1);
+					dc = 895 - C1;
+					__delay_us(25);
+					if (dc<DCmaxCW){dc=DCmaxCW;}
+					if (dc>DCmin){dc=DCmin;}
+					PWM1_LoadDutyValue(dc);
+				}
+				break;
+
+			case SentidoAntiHorario:
+				while(C2 > (C2i + 3)) {
+					C2 = ADC_GetConversion(hallC2);
+					dc = C2 - 145;
+					__delay_us(25);
+					if (dc<DCmin) {dc=DCmin;}
+					if (dc>DCmaxCCW) {dc=DCmaxCCW;}
+					PWM1_LoadDutyValue(dc);
+				}
+				break;
+
+			case AmbosBotones:
+				break;
+		}
+
       PWM1_LoadDutyValue(dc);
 	  
 	}
