@@ -31,3 +31,7 @@
 
 #Nvim specific
 compile_flags.txt
+
+nbproject/
+dist/
+build/
