@@ -43,32 +43,70 @@
 
 #include "mcc_generated_files/mcc.h"
 #include <stdint.h>
+#include "constantes.h"
+#include "nonvolatile.h"
 
-const uint16_t DCmin = 375;
+const uint16_t DCmin = 374;
 const uint16_t DCmaxCW = 250;
 const uint16_t DCmaxCCW = 500;
 
 int main(void) {
 
 	SYSTEM_Initialize();
+      read_from_nonvolatile();
 	__delay_ms(200);
 
 	uint16_t dc;
-	uint16_t C1, C2, C1i, C2i;
+	uint16_t C1, C2;
 	uint16_t C1s = 0;
 	uint16_t C2s = 0;
 
-   for(int i=0;i<5;i++)
-   {
-      C1i = ADC_GetConversion(hallC1);
-      C1s = C1s + C1i;
-      __delay_ms(1);
-      C2i = ADC_GetConversion(hallC2);
-      C2s = C2s + C2i;
-      __delay_ms(1);
+   C1 = ADC_GetConversion(hallC1);
+   C2 = ADC_GetConversion(hallC2);
+   
+   if (C1 > 575 && C2 > 575) {
+      uint16_t C1p = 0;
+      uint16_t C2p = 0;
+      for (int i=0;i<5;i++){
+         C1p += ADC_GetConversion(hallC1);
+         C2p += ADC_GetConversion(hallC2);
+      }
+      BOTON1_MAX = C1p/5;
+      BOTON2_MAX = C2p/5;
+      
+      PWM1_LoadDutyValue(DCmaxCW);
+      __delay_ms(2000);
+      PWM1_LoadDutyValue(DCmaxCCW);
+      __delay_ms(2000);
+      PWM1_LoadDutyValue(DCmin);
+      
+      C1p = 0;
+      C2p = 0;
+       
+      while (C1 > 550 || C2 > 550) {
+         C1 = ADC_GetConversion(hallC1);
+         C2 = ADC_GetConversion(hallC2);
+      }
+      __delay_ms(2000);
+      
+      for (int i=0;i<5;i++){
+         C1p += ADC_GetConversion(hallC1);
+         C2p += ADC_GetConversion(hallC2);
+      }
+      BOTON1_MIN = C1p/5;
+      BOTON2_MIN = C2p/5;
+      
+      PWM1_LoadDutyValue(DCmaxCW);
+      __delay_ms(2000);
+      PWM1_LoadDutyValue(DCmaxCCW);
+      __delay_ms(2000);
+      PWM1_LoadDutyValue(DCmin);
+      
+      save_to_nonvolatile();
+      
    }
-   C1i = (C1s/5);
-   C2i = (C2s/5);
+
+
    C1s = 0;
    C2s = 0;
    
@@ -78,22 +116,20 @@ int main(void) {
       C1 = ADC_GetConversion(hallC1);
       C2 = ADC_GetConversion(hallC2);
       
-      if(C1 > (C1i + 3)) {
-         while(C1 > (C1i + 10)) {
+      if(C1 > (BOTON1_MIN + 10)) {
+         while(C1 > (BOTON1_MIN + 10)) {
             C1 = ADC_GetConversion(hallC1);
             dc = 895 - C1;
-            __delay_us(25);
             if (dc<DCmaxCW){dc=DCmaxCW;}
             if (dc>DCmin){dc=DCmin;}
             PWM1_LoadDutyValue(dc);
          }
       }
-      else if(C2 > (C2i + 10)) {
+      else if(C2 > (BOTON2_MIN + 10)) {
 
-         while(C2 > (C2i + 3)) {
+         while(C2 > (BOTON2_MIN + 10)) {
             C2 = ADC_GetConversion(hallC2);
             dc = C2 - 145;
-            __delay_us(25);
             if (dc<DCmin) {dc=DCmin;}
             if (dc>DCmaxCCW) {dc=DCmaxCCW;}
             PWM1_LoadDutyValue(dc);
