@@ -1,40 +1,39 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"73 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 73: void SYSTEM_Initialize(void);
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"30 ./nonvolatile.h
-[; ;./nonvolatile.h: 30: int8_t read_from_nonvolatile();
-[v _read_from_nonvolatile `(c ~T0 @X0 0 e? ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"64 main.c
-[; ;main.c: 64:    C1 = ADC_GetConversion(hallC1);
-[c E2919 5 6 29 30 31 .. ]
-[n E2919 . hallC1 hallC2 channel_Temp channel_DAC channel_FVR  ]
-"289 ./mcc_generated_files/adc.h
-[; ;./mcc_generated_files/adc.h: 289: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[v _ADC_GetConversion `(us ~T0 @X0 0 ef1`E2919 ]
-"6 ./constantes.h
-[; ;./constantes.h: 6: extern uint16_t BOTON1_MAX;
-[v _BOTON1_MAX `us ~T0 @X0 0 e ]
-"8
-[; ;./constantes.h: 8: extern uint16_t BOTON2_MAX;
-[v _BOTON2_MAX `us ~T0 @X0 0 e ]
-"129 ./mcc_generated_files/pwm1.h
-[; ;./mcc_generated_files/pwm1.h: 129:  void PWM1_LoadDutyValue(uint16_t dutyValue);
-[v _PWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
-"7 ./constantes.h
-[; ;./constantes.h: 7: extern uint16_t BOTON1_MIN;
-[v _BOTON1_MIN `us ~T0 @X0 0 e ]
-"9
-[; ;./constantes.h: 9: extern uint16_t BOTON2_MIN;
-[v _BOTON2_MIN `us ~T0 @X0 0 e ]
-"15 ./nonvolatile.h
-[; ;./nonvolatile.h: 15: void save_to_nonvolatile();
-[v _save_to_nonvolatile `(v ~T0 @X0 0 e? ]
+"871 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 871: extern volatile unsigned char PR2 __attribute__((address(0x01B)));
+[v _PR2 `Vuc ~T0 @X0 0 e@27 ]
+"851
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 851: extern volatile unsigned char TMR2 __attribute__((address(0x01A)));
+[v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
+"536
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 536:     struct {
+[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S38 . TMR1IF TMR2IF . SSP1IF . ADIF TMR1GIF ]
+"535
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 535: typedef union {
+[u S37 `S38 1 ]
+[n S37 . . ]
+"546
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 546: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x011)));
+[v _PIR1bits `VS37 ~T0 @X0 0 e@17 ]
+"891
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 891: extern volatile unsigned char T2CON __attribute__((address(0x01C)));
+[v _T2CON `Vuc ~T0 @X0 0 e@28 ]
+"897
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 897:     struct {
+[s S60 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S60 . T2CKPS TMR2ON T2OUTPS ]
+"902
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 902:     struct {
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"896
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 896: typedef union {
+[u S59 `S60 1 `S61 1 ]
+[n S59 . . . ]
+"912
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 912: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x01C)));
+[v _T2CONbits `VS59 ~T0 @X0 0 e@28 ]
 "55 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -467,324 +466,152 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6979
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 6979: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"49 main.c
-[; ;main.c: 49: const uint16_t DCmin = 374;
-[v _DCmin `Cus ~T0 @X0 1 e ]
-[i _DCmin
--> -> 374 `i `us
-]
-"50
-[; ;main.c: 50: const uint16_t DCmaxCW = 250;
-[v _DCmaxCW `Cus ~T0 @X0 1 e ]
-[i _DCmaxCW
--> -> 250 `i `us
-]
-"51
-[; ;main.c: 51: const uint16_t DCmaxCCW = 500;
-[v _DCmaxCCW `Cus ~T0 @X0 1 e ]
-[i _DCmaxCCW
--> -> 500 `i `us
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"53
-[; ;main.c: 53: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
+"62 mcc_generated_files/tmr2.c
+[; ;mcc_generated_files/tmr2.c: 62: void TMR2_Initialize(void)
+[v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
+"63
+[; ;mcc_generated_files/tmr2.c: 63: {
 {
-[e :U _main ]
+[e :U _TMR2_Initialize ]
 [f ]
-"55
-[; ;main.c: 55:  SYSTEM_Initialize();
-[e ( _SYSTEM_Initialize ..  ]
-"56
-[; ;main.c: 56:       read_from_nonvolatile();
-[e ( _read_from_nonvolatile ..  ]
-"57
-[; ;main.c: 57:  _delay((unsigned long)((200)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"59
-[; ;main.c: 59:  uint16_t dc;
-[v _dc `us ~T0 @X0 1 a ]
-"60
-[; ;main.c: 60:  uint16_t C1, C2;
-[v _C1 `us ~T0 @X0 1 a ]
-[v _C2 `us ~T0 @X0 1 a ]
-"61
-[; ;main.c: 61:  uint16_t C1s = 0;
-[v _C1s `us ~T0 @X0 1 a ]
-[e = _C1s -> -> 0 `i `us ]
-"62
-[; ;main.c: 62:  uint16_t C2s = 0;
-[v _C2s `us ~T0 @X0 1 a ]
-[e = _C2s -> -> 0 `i `us ]
-"64
-[; ;main.c: 64:    C1 = ADC_GetConversion(hallC1);
-[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
-"65
-[; ;main.c: 65:    C2 = ADC_GetConversion(hallC2);
-[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
 "67
-[; ;main.c: 67:    if (C1 > 575 && C2 > 575) {
-[e $ ! && > -> _C1 `ui -> -> 575 `i `ui > -> _C2 `ui -> -> 575 `i `ui 350  ]
-{
-"68
-[; ;main.c: 68:       uint16_t C1p = 0;
-[v _C1p `us ~T0 @X0 1 a ]
-[e = _C1p -> -> 0 `i `us ]
-"69
-[; ;main.c: 69:       uint16_t C2p = 0;
-[v _C2p `us ~T0 @X0 1 a ]
-[e = _C2p -> -> 0 `i `us ]
+[; ;mcc_generated_files/tmr2.c: 67:     PR2 = 0x7D;
+[e = _PR2 -> -> 125 `i `uc ]
 "70
-[; ;main.c: 70:       for (int i=0;i<5;i++){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 351  ]
-[e $U 352  ]
-[e :U 351 ]
-{
-"71
-[; ;main.c: 71:          C1p += ADC_GetConversion(hallC1);
-[e =+ _C1p -> ( _ADC_GetConversion (1 . `E2919 0 `us ]
-"72
-[; ;main.c: 72:          C2p += ADC_GetConversion(hallC2);
-[e =+ _C2p -> ( _ADC_GetConversion (1 . `E2919 1 `us ]
+[; ;mcc_generated_files/tmr2.c: 70:     TMR2 = 0x00;
+[e = _TMR2 -> -> 0 `i `uc ]
 "73
-[; ;main.c: 73:       }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 351  ]
-[e :U 352 ]
-}
-"74
-[; ;main.c: 74:       BOTON1_MAX = C1p/5;
-[e = _BOTON1_MAX -> / -> _C1p `ui -> -> 5 `i `ui `us ]
-"75
-[; ;main.c: 75:       BOTON2_MAX = C2p/5;
-[e = _BOTON2_MAX -> / -> _C2p `ui -> -> 5 `i `ui `us ]
+[; ;mcc_generated_files/tmr2.c: 73:     PIR1bits.TMR2IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"76
+[; ;mcc_generated_files/tmr2.c: 76:     T2CON = 0x07;
+[e = _T2CON -> -> 7 `i `uc ]
 "77
-[; ;main.c: 77:       PWM1_LoadDutyValue(DCmaxCW);
-[e ( _PWM1_LoadDutyValue (1 _DCmaxCW ]
-"78
-[; ;main.c: 78:       _delay((unsigned long)((2000)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;mcc_generated_files/tmr2.c: 77: }
+[e :UE 346 ]
+}
 "79
-[; ;main.c: 79:       PWM1_LoadDutyValue(DCmaxCCW);
-[e ( _PWM1_LoadDutyValue (1 _DCmaxCCW ]
+[; ;mcc_generated_files/tmr2.c: 79: void TMR2_StartTimer(void)
+[v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
 "80
-[; ;main.c: 80:       _delay((unsigned long)((2000)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"81
-[; ;main.c: 81:       PWM1_LoadDutyValue(DCmin);
-[e ( _PWM1_LoadDutyValue (1 _DCmin ]
+[; ;mcc_generated_files/tmr2.c: 80: {
+{
+[e :U _TMR2_StartTimer ]
+[f ]
+"82
+[; ;mcc_generated_files/tmr2.c: 82:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "83
-[; ;main.c: 83:       C1p = 0;
-[e = _C1p -> -> 0 `i `us ]
-"84
-[; ;main.c: 84:       C2p = 0;
-[e = _C2p -> -> 0 `i `us ]
+[; ;mcc_generated_files/tmr2.c: 83: }
+[e :UE 347 ]
+}
+"85
+[; ;mcc_generated_files/tmr2.c: 85: void TMR2_StopTimer(void)
+[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
 "86
-[; ;main.c: 86:       while (C1 > 550 || C2 > 550) {
-[e $U 354  ]
-[e :U 355 ]
+[; ;mcc_generated_files/tmr2.c: 86: {
 {
-"87
-[; ;main.c: 87:          C1 = ADC_GetConversion(hallC1);
-[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
+[e :U _TMR2_StopTimer ]
+[f ]
 "88
-[; ;main.c: 88:          C2 = ADC_GetConversion(hallC2);
-[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
+[; ;mcc_generated_files/tmr2.c: 88:     T2CONbits.TMR2ON = 0;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
 "89
-[; ;main.c: 89:       }
+[; ;mcc_generated_files/tmr2.c: 89: }
+[e :UE 348 ]
 }
-[e :U 354 ]
-"86
-[; ;main.c: 86:       while (C1 > 550 || C2 > 550) {
-[e $ || > -> _C1 `ui -> -> 550 `i `ui > -> _C2 `ui -> -> 550 `i `ui 355  ]
-[e :U 356 ]
-"90
-[; ;main.c: 90:       _delay((unsigned long)((2000)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"91
+[; ;mcc_generated_files/tmr2.c: 91: uint8_t TMR2_ReadTimer(void)
+[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
 "92
-[; ;main.c: 92:       for (int i=0;i<5;i++){
+[; ;mcc_generated_files/tmr2.c: 92: {
 {
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 357  ]
-[e $U 358  ]
-[e :U 357 ]
-{
+[e :U _TMR2_ReadTimer ]
+[f ]
 "93
-[; ;main.c: 93:          C1p += ADC_GetConversion(hallC1);
-[e =+ _C1p -> ( _ADC_GetConversion (1 . `E2919 0 `us ]
-"94
-[; ;main.c: 94:          C2p += ADC_GetConversion(hallC2);
-[e =+ _C2p -> ( _ADC_GetConversion (1 . `E2919 1 `us ]
+[; ;mcc_generated_files/tmr2.c: 93:     uint8_t readVal;
+[v _readVal `uc ~T0 @X0 1 a ]
 "95
-[; ;main.c: 95:       }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 357  ]
-[e :U 358 ]
-}
-"96
-[; ;main.c: 96:       BOTON1_MIN = C1p/5;
-[e = _BOTON1_MIN -> / -> _C1p `ui -> -> 5 `i `ui `us ]
+[; ;mcc_generated_files/tmr2.c: 95:     readVal = TMR2;
+[e = _readVal _TMR2 ]
 "97
-[; ;main.c: 97:       BOTON2_MIN = C2p/5;
-[e = _BOTON2_MIN -> / -> _C2p `ui -> -> 5 `i `ui `us ]
-"99
-[; ;main.c: 99:       PWM1_LoadDutyValue(DCmaxCW);
-[e ( _PWM1_LoadDutyValue (1 _DCmaxCW ]
-"100
-[; ;main.c: 100:       _delay((unsigned long)((2000)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"101
-[; ;main.c: 101:       PWM1_LoadDutyValue(DCmaxCCW);
-[e ( _PWM1_LoadDutyValue (1 _DCmaxCCW ]
-"102
-[; ;main.c: 102:       _delay((unsigned long)((2000)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"103
-[; ;main.c: 103:       PWM1_LoadDutyValue(DCmin);
-[e ( _PWM1_LoadDutyValue (1 _DCmin ]
-"105
-[; ;main.c: 105:       save_to_nonvolatile();
-[e ( _save_to_nonvolatile ..  ]
-"107
-[; ;main.c: 107:    }
-}
-[e :U 350 ]
-"110
-[; ;main.c: 110:    C1s = 0;
-[e = _C1s -> -> 0 `i `us ]
-"111
-[; ;main.c: 111:    C2s = 0;
-[e = _C2s -> -> 0 `i `us ]
-"113
-[; ;main.c: 113:    _delay((unsigned long)((200)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"115
-[; ;main.c: 115:  while (1) {
-[e :U 361 ]
-{
-"116
-[; ;main.c: 116:       C1 = ADC_GetConversion(hallC1);
-[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
-"117
-[; ;main.c: 117:       C2 = ADC_GetConversion(hallC2);
-[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
-"119
-[; ;main.c: 119:       if(C1 > (BOTON1_MIN + 10)) {
-[e $ ! > -> _C1 `ui + -> _BOTON1_MIN `ui -> -> 10 `i `ui 363  ]
-{
-"120
-[; ;main.c: 120:          while(C1 > (BOTON1_MIN + 10)) {
-[e $U 364  ]
-[e :U 365 ]
-{
-"121
-[; ;main.c: 121:             C1 = ADC_GetConversion(hallC1);
-[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
-"122
-[; ;main.c: 122:             dc = 895 - C1;
-[e = _dc -> - -> -> 895 `i `ui -> _C1 `ui `us ]
-"123
-[; ;main.c: 123:             if (dc<DCmaxCW){dc=DCmaxCW;}
-[e $ ! < -> _dc `ui -> _DCmaxCW `ui 367  ]
-{
-[e = _dc _DCmaxCW ]
-}
-[e :U 367 ]
-"124
-[; ;main.c: 124:             if (dc>DCmin){dc=DCmin;}
-[e $ ! > -> _dc `ui -> _DCmin `ui 368  ]
-{
-[e = _dc _DCmin ]
-}
-[e :U 368 ]
-"125
-[; ;main.c: 125:             PWM1_LoadDutyValue(dc);
-[e ( _PWM1_LoadDutyValue (1 _dc ]
-"126
-[; ;main.c: 126:          }
-}
-[e :U 364 ]
-"120
-[; ;main.c: 120:          while(C1 > (BOTON1_MIN + 10)) {
-[e $ > -> _C1 `ui + -> _BOTON1_MIN `ui -> -> 10 `i `ui 365  ]
-[e :U 366 ]
-"127
-[; ;main.c: 127:       }
-}
-[e $U 369  ]
-"128
-[; ;main.c: 128:       else if(C2 > (BOTON2_MIN + 10)) {
-[e :U 363 ]
-[e $ ! > -> _C2 `ui + -> _BOTON2_MIN `ui -> -> 10 `i `ui 370  ]
-{
-"130
-[; ;main.c: 130:          while(C2 > (BOTON2_MIN + 10)) {
-[e $U 371  ]
-[e :U 372 ]
-{
-"131
-[; ;main.c: 131:             C2 = ADC_GetConversion(hallC2);
-[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
-"132
-[; ;main.c: 132:             dc = C2 - 145;
-[e = _dc -> - -> _C2 `ui -> -> 145 `i `ui `us ]
-"133
-[; ;main.c: 133:             if (dc<DCmin) {dc=DCmin;}
-[e $ ! < -> _dc `ui -> _DCmin `ui 374  ]
-{
-[e = _dc _DCmin ]
-}
-[e :U 374 ]
-"134
-[; ;main.c: 134:             if (dc>DCmaxCCW) {dc=DCmaxCCW;}
-[e $ ! > -> _dc `ui -> _DCmaxCCW `ui 375  ]
-{
-[e = _dc _DCmaxCCW ]
-}
-[e :U 375 ]
-"135
-[; ;main.c: 135:             PWM1_LoadDutyValue(dc);
-[e ( _PWM1_LoadDutyValue (1 _dc ]
-"136
-[; ;main.c: 136:          }
-}
-[e :U 371 ]
-"130
-[; ;main.c: 130:          while(C2 > (BOTON2_MIN + 10)) {
-[e $ > -> _C2 `ui + -> _BOTON2_MIN `ui -> -> 10 `i `ui 372  ]
-[e :U 373 ]
-"137
-[; ;main.c: 137:       }
-}
-[e $U 376  ]
-"138
-[; ;main.c: 138:       else {
-[e :U 370 ]
-{
-"139
-[; ;main.c: 139:          dc = 375;
-[e = _dc -> -> 375 `i `us ]
-"140
-[; ;main.c: 140:       }
-}
-[e :U 376 ]
-[e :U 369 ]
-"141
-[; ;main.c: 141:       PWM1_LoadDutyValue(dc);
-[e ( _PWM1_LoadDutyValue (1 _dc ]
-"143
-[; ;main.c: 143:  }
-}
-[e :U 360 ]
-[e $U 361  ]
-[e :U 362 ]
-"144
-[; ;main.c: 144: }
+[; ;mcc_generated_files/tmr2.c: 97:     return readVal;
+[e ) _readVal ]
+[e $UE 349  ]
+"98
+[; ;mcc_generated_files/tmr2.c: 98: }
 [e :UE 349 ]
+}
+"100
+[; ;mcc_generated_files/tmr2.c: 100: void TMR2_WriteTimer(uint8_t timerVal)
+[v _TMR2_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
+"101
+[; ;mcc_generated_files/tmr2.c: 101: {
+{
+[e :U _TMR2_WriteTimer ]
+"100
+[; ;mcc_generated_files/tmr2.c: 100: void TMR2_WriteTimer(uint8_t timerVal)
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"101
+[; ;mcc_generated_files/tmr2.c: 101: {
+[f ]
+"103
+[; ;mcc_generated_files/tmr2.c: 103:     TMR2 = timerVal;
+[e = _TMR2 _timerVal ]
+"104
+[; ;mcc_generated_files/tmr2.c: 104: }
+[e :UE 350 ]
+}
+"106
+[; ;mcc_generated_files/tmr2.c: 106: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[v _TMR2_LoadPeriodRegister `(v ~T0 @X0 1 ef1`uc ]
+"107
+[; ;mcc_generated_files/tmr2.c: 107: {
+{
+[e :U _TMR2_LoadPeriodRegister ]
+"106
+[; ;mcc_generated_files/tmr2.c: 106: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"107
+[; ;mcc_generated_files/tmr2.c: 107: {
+[f ]
+"108
+[; ;mcc_generated_files/tmr2.c: 108:    PR2 = periodVal;
+[e = _PR2 _periodVal ]
+"109
+[; ;mcc_generated_files/tmr2.c: 109: }
+[e :UE 351 ]
+}
+"111
+[; ;mcc_generated_files/tmr2.c: 111: _Bool TMR2_HasOverflowOccured(void)
+[v _TMR2_HasOverflowOccured `(a ~T0 @X0 1 ef ]
+"112
+[; ;mcc_generated_files/tmr2.c: 112: {
+{
+[e :U _TMR2_HasOverflowOccured ]
+[f ]
+"114
+[; ;mcc_generated_files/tmr2.c: 114:     _Bool status = PIR1bits.TMR2IF;
+[v _status `a ~T0 @X0 1 a ]
+[e = _status -> . . _PIR1bits 0 1 `a ]
+"115
+[; ;mcc_generated_files/tmr2.c: 115:     if(status)
+[e $ ! != -> _status `i -> 0 `i 353  ]
+"116
+[; ;mcc_generated_files/tmr2.c: 116:     {
+{
+"118
+[; ;mcc_generated_files/tmr2.c: 118:         PIR1bits.TMR2IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"119
+[; ;mcc_generated_files/tmr2.c: 119:     }
+}
+[e :U 353 ]
+"120
+[; ;mcc_generated_files/tmr2.c: 120:     return status;
+[e ) _status ]
+[e $UE 352  ]
+"121
+[; ;mcc_generated_files/tmr2.c: 121: }
+[e :UE 352 ]
 }

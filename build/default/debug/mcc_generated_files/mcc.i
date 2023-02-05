@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "mcc_generated_files/mcc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 44 "main.c"
-# 1 "./mcc_generated_files/mcc.h" 1
-# 49 "./mcc_generated_files/mcc.h"
+# 1 "mcc_generated_files/mcc.c" 2
+# 47 "mcc_generated_files/mcc.c"
+# 1 "mcc_generated_files/mcc.h" 1
+# 49 "mcc_generated_files/mcc.h"
 # 1 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4428,21 +4428,21 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/xc.h" 2 3
-# 49 "./mcc_generated_files/mcc.h" 2
+# 49 "mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/device_config.h" 1
-# 50 "./mcc_generated_files/mcc.h" 2
+# 1 "mcc_generated_files/device_config.h" 1
+# 50 "mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 114 "./mcc_generated_files/pin_manager.h"
+# 1 "mcc_generated_files/pin_manager.h" 1
+# 114 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 126 "./mcc_generated_files/pin_manager.h"
+# 126 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 51 "./mcc_generated_files/mcc.h" 2
+# 51 "mcc_generated_files/mcc.h" 2
 
 
 # 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdbool.h" 1 3
-# 53 "./mcc_generated_files/mcc.h" 2
+# 53 "mcc_generated_files/mcc.h" 2
 
 # 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 1 3
 # 24 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 3
@@ -4588,45 +4588,45 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 54 "./mcc_generated_files/mcc.h" 2
+# 54 "mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/pwm1.h" 1
-# 102 "./mcc_generated_files/pwm1.h"
+# 1 "mcc_generated_files/pwm1.h" 1
+# 102 "mcc_generated_files/pwm1.h"
  void PWM1_Initialize(void);
-# 129 "./mcc_generated_files/pwm1.h"
+# 129 "mcc_generated_files/pwm1.h"
  void PWM1_LoadDutyValue(uint16_t dutyValue);
-# 55 "./mcc_generated_files/mcc.h" 2
+# 55 "mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/memory.h" 1
-# 99 "./mcc_generated_files/memory.h"
+# 1 "mcc_generated_files/memory.h" 1
+# 99 "mcc_generated_files/memory.h"
 uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "./mcc_generated_files/memory.h"
+# 128 "mcc_generated_files/memory.h"
 void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "./mcc_generated_files/memory.h"
+# 164 "mcc_generated_files/memory.h"
 int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "./mcc_generated_files/memory.h"
+# 189 "mcc_generated_files/memory.h"
 void FLASH_EraseBlock(uint16_t startAddr);
-# 56 "./mcc_generated_files/mcc.h" 2
+# 56 "mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/tmr2.h" 1
-# 103 "./mcc_generated_files/tmr2.h"
+# 1 "mcc_generated_files/tmr2.h" 1
+# 103 "mcc_generated_files/tmr2.h"
 void TMR2_Initialize(void);
-# 132 "./mcc_generated_files/tmr2.h"
+# 132 "mcc_generated_files/tmr2.h"
 void TMR2_StartTimer(void);
-# 164 "./mcc_generated_files/tmr2.h"
+# 164 "mcc_generated_files/tmr2.h"
 void TMR2_StopTimer(void);
-# 199 "./mcc_generated_files/tmr2.h"
+# 199 "mcc_generated_files/tmr2.h"
 uint8_t TMR2_ReadTimer(void);
-# 238 "./mcc_generated_files/tmr2.h"
+# 238 "mcc_generated_files/tmr2.h"
 void TMR2_WriteTimer(uint8_t timerVal);
-# 290 "./mcc_generated_files/tmr2.h"
+# 290 "mcc_generated_files/tmr2.h"
 void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 325 "./mcc_generated_files/tmr2.h"
+# 325 "mcc_generated_files/tmr2.h"
 _Bool TMR2_HasOverflowOccured(void);
-# 57 "./mcc_generated_files/mcc.h" 2
+# 57 "mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/adc.h" 1
-# 72 "./mcc_generated_files/adc.h"
+# 1 "mcc_generated_files/adc.h" 1
+# 72 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
 
 
@@ -4637,7 +4637,7 @@ typedef struct
     adc_result_t adcResult1;
     adc_result_t adcResult2;
 } adc_sync_double_result_t;
-# 95 "./mcc_generated_files/adc.h"
+# 95 "mcc_generated_files/adc.h"
 typedef enum
 {
     hallC1 = 0x5,
@@ -4646,153 +4646,52 @@ typedef enum
     channel_DAC = 0x1E,
     channel_FVR = 0x1F
 } adc_channel_t;
-# 137 "./mcc_generated_files/adc.h"
+# 137 "mcc_generated_files/adc.h"
 void ADC_Initialize(void);
-# 167 "./mcc_generated_files/adc.h"
+# 167 "mcc_generated_files/adc.h"
 void ADC_SelectChannel(adc_channel_t channel);
-# 194 "./mcc_generated_files/adc.h"
+# 194 "mcc_generated_files/adc.h"
 void ADC_StartConversion(void);
-# 226 "./mcc_generated_files/adc.h"
+# 226 "mcc_generated_files/adc.h"
 _Bool ADC_IsConversionDone(void);
-# 259 "./mcc_generated_files/adc.h"
+# 259 "mcc_generated_files/adc.h"
 adc_result_t ADC_GetConversionResult(void);
-# 289 "./mcc_generated_files/adc.h"
+# 289 "mcc_generated_files/adc.h"
 adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 317 "./mcc_generated_files/adc.h"
+# 317 "mcc_generated_files/adc.h"
 void ADC_TemperatureAcquisitionDelay(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-# 73 "./mcc_generated_files/mcc.h"
+# 58 "mcc_generated_files/mcc.h" 2
+# 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "./mcc_generated_files/mcc.h"
+# 86 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 98 "./mcc_generated_files/mcc.h"
+# 98 "mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
-# 45 "main.c" 2
-
-# 1 "./constantes.h" 1
+# 47 "mcc_generated_files/mcc.c" 2
 
 
 
+void SYSTEM_Initialize(void)
+{
 
+    PIN_MANAGER_Initialize();
+    OSCILLATOR_Initialize();
+    WDT_Initialize();
+    PWM1_Initialize();
+    TMR2_Initialize();
+    ADC_Initialize();
+}
 
-extern uint16_t BOTON1_MAX;
-extern uint16_t BOTON1_MIN;
-extern uint16_t BOTON2_MAX;
-extern uint16_t BOTON2_MIN;
-# 47 "main.c" 2
-# 1 "./nonvolatile.h" 1
+void OSCILLATOR_Initialize(void)
+{
 
+    OSCCON = 0x78;
 
+    BORCON = 0x00;
+}
 
+void WDT_Initialize(void)
+{
 
-
-
-enum {
- DATOS_VALIDOS,
- DATOS_DEFAULT=0x3FFF
-};
-
-
-
-
-void save_to_nonvolatile();
-# 30 "./nonvolatile.h"
-int8_t read_from_nonvolatile();
-# 48 "main.c" 2
-
-const uint16_t DCmin = 374;
-const uint16_t DCmaxCW = 250;
-const uint16_t DCmaxCCW = 500;
-
-int main(void) {
-
- SYSTEM_Initialize();
-      read_from_nonvolatile();
- _delay((unsigned long)((200)*(16000000/4000.0)));
-
- uint16_t dc;
- uint16_t C1, C2;
- uint16_t C1s = 0;
- uint16_t C2s = 0;
-
-   C1 = ADC_GetConversion(hallC1);
-   C2 = ADC_GetConversion(hallC2);
-
-   if (C1 > 575 && C2 > 575) {
-      uint16_t C1p = 0;
-      uint16_t C2p = 0;
-      for (int i=0;i<5;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
-      }
-      BOTON1_MAX = C1p/5;
-      BOTON2_MAX = C2p/5;
-
-      PWM1_LoadDutyValue(DCmaxCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmaxCCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmin);
-
-      C1p = 0;
-      C2p = 0;
-
-      while (C1 > 550 || C2 > 550) {
-         C1 = ADC_GetConversion(hallC1);
-         C2 = ADC_GetConversion(hallC2);
-      }
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-
-      for (int i=0;i<5;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
-      }
-      BOTON1_MIN = C1p/5;
-      BOTON2_MIN = C2p/5;
-
-      PWM1_LoadDutyValue(DCmaxCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmaxCCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmin);
-
-      save_to_nonvolatile();
-
-   }
-
-
-   C1s = 0;
-   C2s = 0;
-
-   _delay((unsigned long)((200)*(16000000/4000.0)));
-
- while (1) {
-      C1 = ADC_GetConversion(hallC1);
-      C2 = ADC_GetConversion(hallC2);
-
-      if(C1 > (BOTON1_MIN + 10)) {
-         while(C1 > (BOTON1_MIN + 10)) {
-            C1 = ADC_GetConversion(hallC1);
-            dc = 895 - C1;
-            if (dc<DCmaxCW){dc=DCmaxCW;}
-            if (dc>DCmin){dc=DCmin;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else if(C2 > (BOTON2_MIN + 10)) {
-
-         while(C2 > (BOTON2_MIN + 10)) {
-            C2 = ADC_GetConversion(hallC2);
-            dc = C2 - 145;
-            if (dc<DCmin) {dc=DCmin;}
-            if (dc>DCmaxCCW) {dc=DCmaxCCW;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else {
-         dc = 375;
-      }
-      PWM1_LoadDutyValue(dc);
-
- }
+    WDTCON = 0x16;
 }

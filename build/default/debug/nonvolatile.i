@@ -121,7 +121,7 @@ typedef uint32_t uint_fast32_t;
 
 enum {
  DATOS_VALIDOS,
- DATOS_DEFAULT=0x3FFF
+ DATOS_DEFAULT=0xFF
 };
 
 
@@ -157,7 +157,7 @@ extern uint16_t BOTON2_MIN;
 # 4 "nonvolatile.c" 2
 
 void save_to_nonvolatile(){
- uint16_t bloque[16] = {[0 ... 15] = 0x3FFF};
+ uint16_t bloque[16] = {[0 ... 15] = 0xFF};
 
  bloque[0] = DATOS_VALIDOS;
  bloque[1] = BOTON1_MAX;
@@ -169,7 +169,7 @@ void save_to_nonvolatile(){
 }
 
 int8_t read_from_nonvolatile(){
- if (FLASH_ReadWord(0x0780)&DATOS_DEFAULT==DATOS_DEFAULT) {
+ if (FLASH_ReadWord(0x0780)==DATOS_DEFAULT) {
   return 1;
  }
 

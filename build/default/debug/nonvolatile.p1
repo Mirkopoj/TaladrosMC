@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "8 nonvolatile.c
 [; ;nonvolatile.c: 8:  bloque[0] = DATOS_VALIDOS;
-[c E36 0 16383 .. ]
+[c E36 0 255 .. ]
 [n E36 . DATOS_VALIDOS DATOS_DEFAULT  ]
 "6 ./constantes.h
 [; ;./constantes.h: 6: extern uint16_t BOTON1_MAX;
@@ -31,23 +31,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F57
 :U ..
 "6
-[; ;nonvolatile.c: 6:  uint16_t bloque[16] = {[0 ... 15] = 0x3FFF};
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
--> -> 16383 `i `us
+[; ;nonvolatile.c: 6:  uint16_t bloque[16] = {[0 ... 15] = 0xFF};
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
 ..
 ]
 [v _bloque `us ~T0 @X0 -> 16 `i a ]
@@ -81,8 +81,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _read_from_nonvolatile ]
 [f ]
 "18
-[; ;nonvolatile.c: 18:  if (FLASH_ReadWord(0x0780)&DATOS_DEFAULT==DATOS_DEFAULT) {
-[e $ ! != & -> ( _FLASH_ReadWord (1 -> -> 1920 `i `us `ui -> -> == -> . `E36 1 `i -> . `E36 1 `i `i `ui -> -> 0 `i `ui 3  ]
+[; ;nonvolatile.c: 18:  if (FLASH_ReadWord(0x0780)==DATOS_DEFAULT) {
+[e $ ! == -> ( _FLASH_ReadWord (1 -> -> 1920 `i `us `ui -> . `E36 1 `ui 3  ]
 {
 "19
 [; ;nonvolatile.c: 19:   return 1;

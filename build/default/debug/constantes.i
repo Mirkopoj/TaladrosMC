@@ -1,4 +1,4 @@
-# 1 "nonvolatile.c"
+# 1 "constantes.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "nonvolatile.c" 2
-# 1 "./nonvolatile.h" 1
+# 1 "constantes.c" 2
+# 1 "./constantes.h" 1
+
 
 
 # 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdint.h" 1 3
@@ -115,68 +116,15 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 145 "/opt/microchip/xc8/v2.40/pic/include/c99/stdint.h" 2 3
-# 4 "./nonvolatile.h" 2
-
-
-
-enum {
- DATOS_VALIDOS,
- DATOS_DEFAULT=0x3FFF
-};
-
-
-
-
-void save_to_nonvolatile();
-# 30 "./nonvolatile.h"
-int8_t read_from_nonvolatile();
-# 2 "nonvolatile.c" 2
-# 1 "./mcc_generated_files/memory.h" 1
-# 54 "./mcc_generated_files/memory.h"
-# 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdbool.h" 1 3
-# 54 "./mcc_generated_files/memory.h" 2
-# 99 "./mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "./mcc_generated_files/memory.h"
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "./mcc_generated_files/memory.h"
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "./mcc_generated_files/memory.h"
-void FLASH_EraseBlock(uint16_t startAddr);
-# 3 "nonvolatile.c" 2
-# 1 "./constantes.h" 1
-
-
-
-
+# 5 "./constantes.h" 2
 
 extern uint16_t BOTON1_MAX;
 extern uint16_t BOTON1_MIN;
 extern uint16_t BOTON2_MAX;
 extern uint16_t BOTON2_MIN;
-# 4 "nonvolatile.c" 2
+# 2 "constantes.c" 2
 
-void save_to_nonvolatile(){
- uint16_t bloque[16] = {[0 ... 15] = 0x3FFF};
-
- bloque[0] = DATOS_VALIDOS;
- bloque[1] = BOTON1_MAX;
- bloque[2] = BOTON1_MIN;
- bloque[3] = BOTON2_MAX;
- bloque[4] = BOTON2_MIN;
-
- FLASH_WriteBlock(0x0780, bloque);
-}
-
-int8_t read_from_nonvolatile(){
- if (FLASH_ReadWord(0x0780)&DATOS_DEFAULT==DATOS_DEFAULT) {
-  return 1;
- }
-
- BOTON1_MAX = FLASH_ReadWord(0x0780 +1);
- BOTON1_MIN = FLASH_ReadWord(0x0780 +2);
- BOTON2_MAX = FLASH_ReadWord(0x0780 +3);
- BOTON2_MIN = FLASH_ReadWord(0x0780 +4);
-
- return 0;
-}
+uint16_t BOTON1_MAX = 656;
+uint16_t BOTON1_MIN = 542;
+uint16_t BOTON2_MAX = 656;
+uint16_t BOTON2_MIN = 542;

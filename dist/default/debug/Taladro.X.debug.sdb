@@ -20,9 +20,9 @@ channel_DAC 30
 channel_FVR 31
 ]
 "8 /home/mirko/MPLABXProjects/Taladro.X/nonvolatile.c
-[e E36 . `ui
+[e E36 . `uc
 DATOS_VALIDOS 0
-DATOS_DEFAULT 16383
+DATOS_DEFAULT 255
 ]
 "5 /opt/microchip/xc8/v2.40/pic/sources/c99/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]

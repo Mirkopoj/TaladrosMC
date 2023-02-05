@@ -137,7 +137,7 @@
         <property key="calibrate-oscillator-value" value="0x3400"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
-        <property key="code-model-rom" value=""/>
+        <property key="code-model-rom" value="0-77f"/>
         <property key="create-html-files" value="false"/>
         <property key="data-model-ram" value=""/>
         <property key="data-model-size-of-double" value="32"/>
@@ -204,9 +204,9 @@
                   value="${programoptions.preservedataflash.ranges}"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveeeprom.ranges" value=""/>
-        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value="780-7ff"/>
         <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.preserveuserid" value="true"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
@@ -248,9 +248,9 @@
                   value="${programoptions.preservedataflash.ranges}"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveeeprom.ranges" value=""/>
-        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value="780-7ff"/>
         <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.preserveuserid" value="true"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>

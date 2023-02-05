@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "mcc_generated_files/pin_manager.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 44 "main.c"
-# 1 "./mcc_generated_files/mcc.h" 1
-# 49 "./mcc_generated_files/mcc.h"
+# 1 "mcc_generated_files/pin_manager.c" 2
+# 49 "mcc_generated_files/pin_manager.c"
+# 1 "mcc_generated_files/pin_manager.h" 1
+# 54 "mcc_generated_files/pin_manager.h"
 # 1 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4428,371 +4428,57 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/xc.h" 2 3
-# 49 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/device_config.h" 1
-# 50 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 114 "./mcc_generated_files/pin_manager.h"
+# 54 "mcc_generated_files/pin_manager.h" 2
+# 114 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 126 "./mcc_generated_files/pin_manager.h"
+# 126 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 51 "./mcc_generated_files/mcc.h" 2
-
-
-# 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdbool.h" 1 3
-# 53 "./mcc_generated_files/mcc.h" 2
-
-# 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 1 3
-# 24 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 3
-# 1 "/opt/microchip/xc8/v2.40/pic/include/c99/bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "/opt/microchip/xc8/v2.40/pic/include/c99/bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "/opt/microchip/xc8/v2.40/pic/include/c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "/opt/microchip/xc8/v2.40/pic/include/c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 2 3
-# 52 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
+# 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
 
 
-
-char *tempnam(const char *, const char *);
-# 54 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pwm1.h" 1
-# 102 "./mcc_generated_files/pwm1.h"
- void PWM1_Initialize(void);
-# 129 "./mcc_generated_files/pwm1.h"
- void PWM1_LoadDutyValue(uint16_t dutyValue);
-# 55 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/memory.h" 1
-# 99 "./mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "./mcc_generated_files/memory.h"
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "./mcc_generated_files/memory.h"
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "./mcc_generated_files/memory.h"
-void FLASH_EraseBlock(uint16_t startAddr);
-# 56 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/tmr2.h" 1
-# 103 "./mcc_generated_files/tmr2.h"
-void TMR2_Initialize(void);
-# 132 "./mcc_generated_files/tmr2.h"
-void TMR2_StartTimer(void);
-# 164 "./mcc_generated_files/tmr2.h"
-void TMR2_StopTimer(void);
-# 199 "./mcc_generated_files/tmr2.h"
-uint8_t TMR2_ReadTimer(void);
-# 238 "./mcc_generated_files/tmr2.h"
-void TMR2_WriteTimer(uint8_t timerVal);
-# 290 "./mcc_generated_files/tmr2.h"
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 325 "./mcc_generated_files/tmr2.h"
-_Bool TMR2_HasOverflowOccured(void);
-# 57 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/adc.h" 1
-# 72 "./mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-
-
-
-
-typedef struct
+void PIN_MANAGER_Initialize(void)
 {
-    adc_result_t adcResult1;
-    adc_result_t adcResult2;
-} adc_sync_double_result_t;
-# 95 "./mcc_generated_files/adc.h"
-typedef enum
+
+
+
+    LATA = 0x00;
+    LATC = 0x00;
+
+
+
+
+    TRISA = 0x3F;
+    TRISC = 0x1F;
+
+
+
+
+    ANSELC = 0x0F;
+    ANSELA = 0x17;
+
+
+
+
+    WPUA = 0x00;
+    OPTION_REGbits.nWPUEN = 1;
+
+
+
+
+
+    APFCON = 0x00;
+
+
+
+
+
+
+}
+
+void PIN_MANAGER_IOC(void)
 {
-    hallC1 = 0x5,
-    hallC2 = 0x6,
-    channel_Temp = 0x1D,
-    channel_DAC = 0x1E,
-    channel_FVR = 0x1F
-} adc_channel_t;
-# 137 "./mcc_generated_files/adc.h"
-void ADC_Initialize(void);
-# 167 "./mcc_generated_files/adc.h"
-void ADC_SelectChannel(adc_channel_t channel);
-# 194 "./mcc_generated_files/adc.h"
-void ADC_StartConversion(void);
-# 226 "./mcc_generated_files/adc.h"
-_Bool ADC_IsConversionDone(void);
-# 259 "./mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversionResult(void);
-# 289 "./mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 317 "./mcc_generated_files/adc.h"
-void ADC_TemperatureAcquisitionDelay(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-# 73 "./mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-# 86 "./mcc_generated_files/mcc.h"
-void OSCILLATOR_Initialize(void);
-# 98 "./mcc_generated_files/mcc.h"
-void WDT_Initialize(void);
-# 45 "main.c" 2
-
-# 1 "./constantes.h" 1
-
-
-
-
-
-extern uint16_t BOTON1_MAX;
-extern uint16_t BOTON1_MIN;
-extern uint16_t BOTON2_MAX;
-extern uint16_t BOTON2_MIN;
-# 47 "main.c" 2
-# 1 "./nonvolatile.h" 1
-
-
-
-
-
-
-enum {
- DATOS_VALIDOS,
- DATOS_DEFAULT=0x3FFF
-};
-
-
-
-
-void save_to_nonvolatile();
-# 30 "./nonvolatile.h"
-int8_t read_from_nonvolatile();
-# 48 "main.c" 2
-
-const uint16_t DCmin = 374;
-const uint16_t DCmaxCW = 250;
-const uint16_t DCmaxCCW = 500;
-
-int main(void) {
-
- SYSTEM_Initialize();
-      read_from_nonvolatile();
- _delay((unsigned long)((200)*(16000000/4000.0)));
-
- uint16_t dc;
- uint16_t C1, C2;
- uint16_t C1s = 0;
- uint16_t C2s = 0;
-
-   C1 = ADC_GetConversion(hallC1);
-   C2 = ADC_GetConversion(hallC2);
-
-   if (C1 > 575 && C2 > 575) {
-      uint16_t C1p = 0;
-      uint16_t C2p = 0;
-      for (int i=0;i<5;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
-      }
-      BOTON1_MAX = C1p/5;
-      BOTON2_MAX = C2p/5;
-
-      PWM1_LoadDutyValue(DCmaxCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmaxCCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmin);
-
-      C1p = 0;
-      C2p = 0;
-
-      while (C1 > 550 || C2 > 550) {
-         C1 = ADC_GetConversion(hallC1);
-         C2 = ADC_GetConversion(hallC2);
-      }
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-
-      for (int i=0;i<5;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
-      }
-      BOTON1_MIN = C1p/5;
-      BOTON2_MIN = C2p/5;
-
-      PWM1_LoadDutyValue(DCmaxCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmaxCCW);
-      _delay((unsigned long)((2000)*(16000000/4000.0)));
-      PWM1_LoadDutyValue(DCmin);
-
-      save_to_nonvolatile();
-
-   }
-
-
-   C1s = 0;
-   C2s = 0;
-
-   _delay((unsigned long)((200)*(16000000/4000.0)));
-
- while (1) {
-      C1 = ADC_GetConversion(hallC1);
-      C2 = ADC_GetConversion(hallC2);
-
-      if(C1 > (BOTON1_MIN + 10)) {
-         while(C1 > (BOTON1_MIN + 10)) {
-            C1 = ADC_GetConversion(hallC1);
-            dc = 895 - C1;
-            if (dc<DCmaxCW){dc=DCmaxCW;}
-            if (dc>DCmin){dc=DCmin;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else if(C2 > (BOTON2_MIN + 10)) {
-
-         while(C2 > (BOTON2_MIN + 10)) {
-            C2 = ADC_GetConversion(hallC2);
-            dc = C2 - 145;
-            if (dc<DCmin) {dc=DCmin;}
-            if (dc>DCmaxCCW) {dc=DCmaxCCW;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else {
-         dc = 375;
-      }
-      PWM1_LoadDutyValue(dc);
-
- }
 }

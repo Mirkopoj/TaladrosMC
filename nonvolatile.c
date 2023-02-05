@@ -3,7 +3,7 @@
 #include "constantes.h"
 
 void save_to_nonvolatile(){
-	uint16_t bloque[16] = {[0 ... 15] = 0xFF};
+	uint16_t bloque[16] = {[0 ... 15] = 0x3FFF};
 	
 	bloque[0] = DATOS_VALIDOS;
 	bloque[1] = BOTON1_MAX;
@@ -15,7 +15,7 @@ void save_to_nonvolatile(){
 }
 
 int8_t read_from_nonvolatile(){
-	if (FLASH_ReadWord(HIGH_ENDURANCE_ADDR)==DATOS_DEFAULT) {
+	if (FLASH_ReadWord(HIGH_ENDURANCE_ADDR)&DATOS_DEFAULT==DATOS_DEFAULT) {
 		return 1;
 	}
 
