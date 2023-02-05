@@ -46,9 +46,9 @@
 #include "constantes.h"
 #include "nonvolatile.h"
 
-const uint16_t DCmin = 374;
-const uint16_t DCmaxCW = 250;
-const uint16_t DCmaxCCW = 500;
+const int16_t DCmin = 374;
+const int16_t DCmaxCW = 250;
+const int16_t DCmaxCCW = 500;
 
 int main(void) {
 
@@ -56,17 +56,14 @@ int main(void) {
       read_from_nonvolatile();
 	__delay_ms(200);
 
-	uint16_t dc;
-	uint16_t C1, C2;
-	uint16_t C1s = 0;
-	uint16_t C2s = 0;
+	int16_t C1, C2;
 
    C1 = ADC_GetConversion(hallC1);
    C2 = ADC_GetConversion(hallC2);
    
    if (C1 > 575 && C2 > 575) {
-      uint16_t C1p = 0;
-      uint16_t C2p = 0;
+      int16_t C1p = 0;
+      int16_t C2p = 0;
       for (int i=0;i<5;i++){
          C1p += ADC_GetConversion(hallC1);
          C2p += ADC_GetConversion(hallC2);
@@ -105,10 +102,24 @@ int main(void) {
       save_to_nonvolatile();
       
    }
+   
+	int16_t dc;
 
+	int16_t a1;
+	int16_t b1;
+	int16_t a2;
+	int16_t b2;
 
-   C1s = 0;
-   C2s = 0;
+	{
+		int32_t DCmaxCW_S = DCmaxCW<<5;
+		int32_t DCmaxCCW_S = DCmaxCCW<<5;
+		int32_t DCmin_S = DCmin<<5;
+
+		a1 = (DCmaxCW_S - DCmin_S)/(BOTON1_MAX - BOTON1_MIN);
+		b1 = DCmin_S - BOTON1_MIN * a1;
+		a2 = (DCmaxCCW_S - DCmin_S)/(BOTON2_MAX - BOTON2_MIN);
+		b2 = DCmin_S - BOTON2_MIN * a2;
+	}
    
    __delay_ms(200);
 
@@ -119,7 +130,7 @@ int main(void) {
       if(C1 > (BOTON1_MIN + 10)) {
          while(C1 > (BOTON1_MIN + 10)) {
             C1 = ADC_GetConversion(hallC1);
-            dc = 895 - C1;
+            dc = ((int32_t)C1 * a1 + b1)>>5;
             if (dc<DCmaxCW){dc=DCmaxCW;}
             if (dc>DCmin){dc=DCmin;}
             PWM1_LoadDutyValue(dc);
@@ -129,7 +140,7 @@ int main(void) {
 
          while(C2 > (BOTON2_MIN + 10)) {
             C2 = ADC_GetConversion(hallC2);
-            dc = C2 - 145;
+            dc = ((int32_t)C2 * a2 + b2)>>5;
             if (dc<DCmin) {dc=DCmin;}
             if (dc>DCmaxCCW) {dc=DCmaxCCW;}
             PWM1_LoadDutyValue(dc);

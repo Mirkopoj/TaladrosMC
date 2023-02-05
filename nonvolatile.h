@@ -2,7 +2,7 @@
 #define NONVOLATILE_H
 #include <stdint.h>
 
-#define HIGH_ENDURANCE_ADDR 0x0780 //Ver el address real 
+#define HIGH_ENDURANCE_ADDR 0x07F0 //Ver el address real 
 
 enum {
 	DATOS_VALIDOS,

@@ -15,7 +15,7 @@ void save_to_nonvolatile(){
 }
 
 int8_t read_from_nonvolatile(){
-	if (FLASH_ReadWord(HIGH_ENDURANCE_ADDR)&DATOS_DEFAULT==DATOS_DEFAULT) {
+	if ((FLASH_ReadWord(HIGH_ENDURANCE_ADDR)&DATOS_DEFAULT)==DATOS_DEFAULT) {
 		return 1;
 	}
 
