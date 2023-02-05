@@ -47,29 +47,6 @@
 #include "nonvolatile.h"
 #include "match.h"
 
-const int16_t DCmin = 374;
-const int16_t DCmaxBoton1 = //Taladro = Cw,  Sierra = Rapido
-#ifdef SYSTEM_5
-	250
-#else
-	500
-#endif 
-;
-
-const int16_t DCmaxBoton2 = //Taladro = CCw, Sierra = Lento
-#ifdef SYSTEM_5
-	500
-#else
-	417
-#endif 
-;
-const uint16_t DCHumbral = //Taladro = 10, Sierra = 3
-#ifdef SYSTEM_5
-	10
-#else
-	3
-#endif 
-;
 
 int main(void) {
 
