@@ -4444,13 +4444,6 @@ void PIN_MANAGER_IOC(void);
 # 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdbool.h" 1 3
 # 53 "mcc_generated_files/mcc.h" 2
 
-# 1 "/opt/microchip/xc8/v2.40/pic/include/c99/conio.h" 1 3
-
-
-
-
-
-
 # 1 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 1 3
 # 24 "/opt/microchip/xc8/v2.40/pic/include/c99/stdio.h" 3
 # 1 "/opt/microchip/xc8/v2.40/pic/include/c99/bits/alltypes.h" 1 3
@@ -4595,7 +4588,6 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 8 "/opt/microchip/xc8/v2.40/pic/include/c99/conio.h" 2 3
 # 54 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pwm1.h" 1

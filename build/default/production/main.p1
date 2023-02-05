@@ -3,20 +3,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "73 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 73: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
+"30 ./nonvolatile.h
+[; ;./nonvolatile.h: 30: int8_t read_from_nonvolatile();
+[v _read_from_nonvolatile `(c ~T0 @X0 0 e? ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"63 main.c
-[; ;main.c: 63:       C1i = ADC_GetConversion(hallC1);
+"64 main.c
+[; ;main.c: 64:    C1 = ADC_GetConversion(hallC1);
 [c E2919 5 6 29 30 31 .. ]
 [n E2919 . hallC1 hallC2 channel_Temp channel_DAC channel_FVR  ]
 "289 ./mcc_generated_files/adc.h
 [; ;./mcc_generated_files/adc.h: 289: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [v _ADC_GetConversion `(us ~T0 @X0 0 ef1`E2919 ]
+"6 ./constantes.h
+[; ;./constantes.h: 6: extern uint16_t BOTON1_MAX;
+[v _BOTON1_MAX `us ~T0 @X0 0 e ]
+"8
+[; ;./constantes.h: 8: extern uint16_t BOTON2_MAX;
+[v _BOTON2_MAX `us ~T0 @X0 0 e ]
 "129 ./mcc_generated_files/pwm1.h
 [; ;./mcc_generated_files/pwm1.h: 129:  void PWM1_LoadDutyValue(uint16_t dutyValue);
 [v _PWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"7 ./constantes.h
+[; ;./constantes.h: 7: extern uint16_t BOTON1_MIN;
+[v _BOTON1_MIN `us ~T0 @X0 0 e ]
+"9
+[; ;./constantes.h: 9: extern uint16_t BOTON2_MIN;
+[v _BOTON2_MIN `us ~T0 @X0 0 e ]
+"15 ./nonvolatile.h
+[; ;./nonvolatile.h: 15: void save_to_nonvolatile();
+[v _save_to_nonvolatile `(v ~T0 @X0 0 e? ]
 "55 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 55: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -449,232 +467,324 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6979
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h: 6979: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"47 main.c
-[; ;main.c: 47: const uint16_t DCmin = 375;
+"49 main.c
+[; ;main.c: 49: const uint16_t DCmin = 374;
 [v _DCmin `Cus ~T0 @X0 1 e ]
 [i _DCmin
--> -> 375 `i `us
+-> -> 374 `i `us
 ]
-"48
-[; ;main.c: 48: const uint16_t DCmaxCW = 250;
+"50
+[; ;main.c: 50: const uint16_t DCmaxCW = 250;
 [v _DCmaxCW `Cus ~T0 @X0 1 e ]
 [i _DCmaxCW
 -> -> 250 `i `us
 ]
-"49
-[; ;main.c: 49: const uint16_t DCmaxCCW = 500;
+"51
+[; ;main.c: 51: const uint16_t DCmaxCCW = 500;
 [v _DCmaxCCW `Cus ~T0 @X0 1 e ]
 [i _DCmaxCCW
 -> -> 500 `i `us
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"51
-[; ;main.c: 51: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"53
+[; ;main.c: 53: int main(void) {
+[v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"53
-[; ;main.c: 53:  SYSTEM_Initialize();
+"55
+[; ;main.c: 55:  SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"54
-[; ;main.c: 54:  _delay((unsigned long)((200)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "56
-[; ;main.c: 56:  uint16_t dc;
-[v _dc `us ~T0 @X0 1 a ]
+[; ;main.c: 56:       read_from_nonvolatile();
+[e ( _read_from_nonvolatile ..  ]
 "57
-[; ;main.c: 57:  uint16_t C1, C2, C1i, C2i;
+[; ;main.c: 57:  _delay((unsigned long)((200)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"59
+[; ;main.c: 59:  uint16_t dc;
+[v _dc `us ~T0 @X0 1 a ]
+"60
+[; ;main.c: 60:  uint16_t C1, C2;
 [v _C1 `us ~T0 @X0 1 a ]
 [v _C2 `us ~T0 @X0 1 a ]
-[v _C1i `us ~T0 @X0 1 a ]
-[v _C2i `us ~T0 @X0 1 a ]
-"58
-[; ;main.c: 58:  uint16_t C1s = 0;
+"61
+[; ;main.c: 61:  uint16_t C1s = 0;
 [v _C1s `us ~T0 @X0 1 a ]
 [e = _C1s -> -> 0 `i `us ]
-"59
-[; ;main.c: 59:  uint16_t C2s = 0;
+"62
+[; ;main.c: 62:  uint16_t C2s = 0;
 [v _C2s `us ~T0 @X0 1 a ]
 [e = _C2s -> -> 0 `i `us ]
-"61
-[; ;main.c: 61:    for(int i=0;i<5;i++)
+"64
+[; ;main.c: 64:    C1 = ADC_GetConversion(hallC1);
+[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
+"65
+[; ;main.c: 65:    C2 = ADC_GetConversion(hallC2);
+[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
+"67
+[; ;main.c: 67:    if (C1 > 575 && C2 > 575) {
+[e $ ! && > -> _C1 `ui -> -> 575 `i `ui > -> _C2 `ui -> -> 575 `i `ui 350  ]
+{
+"68
+[; ;main.c: 68:       uint16_t C1p = 0;
+[v _C1p `us ~T0 @X0 1 a ]
+[e = _C1p -> -> 0 `i `us ]
+"69
+[; ;main.c: 69:       uint16_t C2p = 0;
+[v _C2p `us ~T0 @X0 1 a ]
+[e = _C2p -> -> 0 `i `us ]
+"70
+[; ;main.c: 70:       for (int i=0;i<5;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 350  ]
-[e $U 351  ]
-[e :U 350 ]
-"62
-[; ;main.c: 62:    {
+[e $ < _i -> 5 `i 351  ]
+[e $U 352  ]
+[e :U 351 ]
 {
-"63
-[; ;main.c: 63:       C1i = ADC_GetConversion(hallC1);
-[e = _C1i ( _ADC_GetConversion (1 . `E2919 0 ]
-"64
-[; ;main.c: 64:       C1s = C1s + C1i;
-[e = _C1s -> + -> _C1s `ui -> _C1i `ui `us ]
-"65
-[; ;main.c: 65:       _delay((unsigned long)((1)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"66
-[; ;main.c: 66:       C2i = ADC_GetConversion(hallC2);
-[e = _C2i ( _ADC_GetConversion (1 . `E2919 1 ]
-"67
-[; ;main.c: 67:       C2s = C2s + C2i;
-[e = _C2s -> + -> _C2s `ui -> _C2i `ui `us ]
-"68
-[; ;main.c: 68:       _delay((unsigned long)((1)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"69
-[; ;main.c: 69:    }
+"71
+[; ;main.c: 71:          C1p += ADC_GetConversion(hallC1);
+[e =+ _C1p -> ( _ADC_GetConversion (1 . `E2919 0 `us ]
+"72
+[; ;main.c: 72:          C2p += ADC_GetConversion(hallC2);
+[e =+ _C2p -> ( _ADC_GetConversion (1 . `E2919 1 `us ]
+"73
+[; ;main.c: 73:       }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 350  ]
-[e :U 351 ]
+[e $ < _i -> 5 `i 351  ]
+[e :U 352 ]
 }
-"70
-[; ;main.c: 70:    C1i = (C1s/5);
-[e = _C1i -> / -> _C1s `ui -> -> 5 `i `ui `us ]
-"71
-[; ;main.c: 71:    C2i = (C2s/5);
-[e = _C2i -> / -> _C2s `ui -> -> 5 `i `ui `us ]
-"72
-[; ;main.c: 72:    C1s = 0;
-[e = _C1s -> -> 0 `i `us ]
-"73
-[; ;main.c: 73:    C2s = 0;
-[e = _C2s -> -> 0 `i `us ]
+"74
+[; ;main.c: 74:       BOTON1_MAX = C1p/5;
+[e = _BOTON1_MAX -> / -> _C1p `ui -> -> 5 `i `ui `us ]
 "75
-[; ;main.c: 75:    _delay((unsigned long)((200)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;main.c: 75:       BOTON2_MAX = C2p/5;
+[e = _BOTON2_MAX -> / -> _C2p `ui -> -> 5 `i `ui `us ]
 "77
-[; ;main.c: 77:  while (1) {
-[e :U 354 ]
-{
+[; ;main.c: 77:       PWM1_LoadDutyValue(DCmaxCW);
+[e ( _PWM1_LoadDutyValue (1 _DCmaxCW ]
 "78
-[; ;main.c: 78:       C1 = ADC_GetConversion(hallC1);
-[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
+[; ;main.c: 78:       _delay((unsigned long)((2000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "79
-[; ;main.c: 79:       C2 = ADC_GetConversion(hallC2);
-[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
+[; ;main.c: 79:       PWM1_LoadDutyValue(DCmaxCCW);
+[e ( _PWM1_LoadDutyValue (1 _DCmaxCCW ]
+"80
+[; ;main.c: 80:       _delay((unsigned long)((2000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "81
-[; ;main.c: 81:       if(C1 > (C1i + 3)) {
-[e $ ! > -> _C1 `ui + -> _C1i `ui -> -> 3 `i `ui 356  ]
-{
-"82
-[; ;main.c: 82:          while(C1 > (C1i + 10)) {
-[e $U 357  ]
-[e :U 358 ]
-{
+[; ;main.c: 81:       PWM1_LoadDutyValue(DCmin);
+[e ( _PWM1_LoadDutyValue (1 _DCmin ]
 "83
-[; ;main.c: 83:             C1 = ADC_GetConversion(hallC1);
-[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
+[; ;main.c: 83:       C1p = 0;
+[e = _C1p -> -> 0 `i `us ]
 "84
-[; ;main.c: 84:             dc = 895 - C1;
-[e = _dc -> - -> -> 895 `i `ui -> _C1 `ui `us ]
-"85
-[; ;main.c: 85:             _delay((unsigned long)((25)*(16000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 84:       C2p = 0;
+[e = _C2p -> -> 0 `i `us ]
 "86
-[; ;main.c: 86:             if (dc<DCmaxCW){dc=DCmaxCW;}
-[e $ ! < -> _dc `ui -> _DCmaxCW `ui 360  ]
+[; ;main.c: 86:       while (C1 > 550 || C2 > 550) {
+[e $U 354  ]
+[e :U 355 ]
 {
-[e = _dc _DCmaxCW ]
-}
-[e :U 360 ]
 "87
-[; ;main.c: 87:             if (dc>DCmin){dc=DCmin;}
-[e $ ! > -> _dc `ui -> _DCmin `ui 361  ]
-{
-[e = _dc _DCmin ]
-}
-[e :U 361 ]
+[; ;main.c: 87:          C1 = ADC_GetConversion(hallC1);
+[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
 "88
-[; ;main.c: 88:             PWM1_LoadDutyValue(dc);
-[e ( _PWM1_LoadDutyValue (1 _dc ]
+[; ;main.c: 88:          C2 = ADC_GetConversion(hallC2);
+[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
 "89
-[; ;main.c: 89:          }
+[; ;main.c: 89:       }
 }
-[e :U 357 ]
-"82
-[; ;main.c: 82:          while(C1 > (C1i + 10)) {
-[e $ > -> _C1 `ui + -> _C1i `ui -> -> 10 `i `ui 358  ]
-[e :U 359 ]
-"90
-[; ;main.c: 90:       }
-}
-[e $U 362  ]
-"91
-[; ;main.c: 91:       else if(C2 > (C2i + 10)) {
+[e :U 354 ]
+"86
+[; ;main.c: 86:       while (C1 > 550 || C2 > 550) {
+[e $ || > -> _C1 `ui -> -> 550 `i `ui > -> _C2 `ui -> -> 550 `i `ui 355  ]
 [e :U 356 ]
-[e $ ! > -> _C2 `ui + -> _C2i `ui -> -> 10 `i `ui 363  ]
+"90
+[; ;main.c: 90:       _delay((unsigned long)((2000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"92
+[; ;main.c: 92:       for (int i=0;i<5;i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 357  ]
+[e $U 358  ]
+[e :U 357 ]
 {
 "93
-[; ;main.c: 93:          while(C2 > (C2i + 3)) {
+[; ;main.c: 93:          C1p += ADC_GetConversion(hallC1);
+[e =+ _C1p -> ( _ADC_GetConversion (1 . `E2919 0 `us ]
+"94
+[; ;main.c: 94:          C2p += ADC_GetConversion(hallC2);
+[e =+ _C2p -> ( _ADC_GetConversion (1 . `E2919 1 `us ]
+"95
+[; ;main.c: 95:       }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 357  ]
+[e :U 358 ]
+}
+"96
+[; ;main.c: 96:       BOTON1_MIN = C1p/5;
+[e = _BOTON1_MIN -> / -> _C1p `ui -> -> 5 `i `ui `us ]
+"97
+[; ;main.c: 97:       BOTON2_MIN = C2p/5;
+[e = _BOTON2_MIN -> / -> _C2p `ui -> -> 5 `i `ui `us ]
+"99
+[; ;main.c: 99:       PWM1_LoadDutyValue(DCmaxCW);
+[e ( _PWM1_LoadDutyValue (1 _DCmaxCW ]
+"100
+[; ;main.c: 100:       _delay((unsigned long)((2000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"101
+[; ;main.c: 101:       PWM1_LoadDutyValue(DCmaxCCW);
+[e ( _PWM1_LoadDutyValue (1 _DCmaxCCW ]
+"102
+[; ;main.c: 102:       _delay((unsigned long)((2000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"103
+[; ;main.c: 103:       PWM1_LoadDutyValue(DCmin);
+[e ( _PWM1_LoadDutyValue (1 _DCmin ]
+"105
+[; ;main.c: 105:       save_to_nonvolatile();
+[e ( _save_to_nonvolatile ..  ]
+"107
+[; ;main.c: 107:    }
+}
+[e :U 350 ]
+"109
+[; ;main.c: 109:    C1s = 0;
+[e = _C1s -> -> 0 `i `us ]
+"110
+[; ;main.c: 110:    C2s = 0;
+[e = _C2s -> -> 0 `i `us ]
+"112
+[; ;main.c: 112:    _delay((unsigned long)((200)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"114
+[; ;main.c: 114:  while (1) {
+[e :U 361 ]
+{
+"115
+[; ;main.c: 115:       C1 = ADC_GetConversion(hallC1);
+[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
+"116
+[; ;main.c: 116:       C2 = ADC_GetConversion(hallC2);
+[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
+"118
+[; ;main.c: 118:       if(C1 > (BOTON1_MIN + 10)) {
+[e $ ! > -> _C1 `ui + -> _BOTON1_MIN `ui -> -> 10 `i `ui 363  ]
+{
+"119
+[; ;main.c: 119:          while(C1 > (BOTON1_MIN + 10)) {
 [e $U 364  ]
 [e :U 365 ]
 {
-"94
-[; ;main.c: 94:             C2 = ADC_GetConversion(hallC2);
-[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
-"95
-[; ;main.c: 95:             dc = C2 - 145;
-[e = _dc -> - -> _C2 `ui -> -> 145 `i `ui `us ]
-"96
-[; ;main.c: 96:             _delay((unsigned long)((25)*(16000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-"97
-[; ;main.c: 97:             if (dc<DCmin) {dc=DCmin;}
-[e $ ! < -> _dc `ui -> _DCmin `ui 367  ]
+"120
+[; ;main.c: 120:             C1 = ADC_GetConversion(hallC1);
+[e = _C1 ( _ADC_GetConversion (1 . `E2919 0 ]
+"121
+[; ;main.c: 121:             dc = 895 - C1;
+[e = _dc -> - -> -> 895 `i `ui -> _C1 `ui `us ]
+"122
+[; ;main.c: 122:             if (dc<DCmaxCW){dc=DCmaxCW;}
+[e $ ! < -> _dc `ui -> _DCmaxCW `ui 367  ]
+{
+[e = _dc _DCmaxCW ]
+}
+[e :U 367 ]
+"123
+[; ;main.c: 123:             if (dc>DCmin){dc=DCmin;}
+[e $ ! > -> _dc `ui -> _DCmin `ui 368  ]
 {
 [e = _dc _DCmin ]
 }
-[e :U 367 ]
-"98
-[; ;main.c: 98:             if (dc>DCmaxCCW) {dc=DCmaxCCW;}
-[e $ ! > -> _dc `ui -> _DCmaxCCW `ui 368  ]
+[e :U 368 ]
+"124
+[; ;main.c: 124:             PWM1_LoadDutyValue(dc);
+[e ( _PWM1_LoadDutyValue (1 _dc ]
+"125
+[; ;main.c: 125:          }
+}
+[e :U 364 ]
+"119
+[; ;main.c: 119:          while(C1 > (BOTON1_MIN + 10)) {
+[e $ > -> _C1 `ui + -> _BOTON1_MIN `ui -> -> 10 `i `ui 365  ]
+[e :U 366 ]
+"126
+[; ;main.c: 126:       }
+}
+[e $U 369  ]
+"127
+[; ;main.c: 127:       else if(C2 > (BOTON2_MIN + 10)) {
+[e :U 363 ]
+[e $ ! > -> _C2 `ui + -> _BOTON2_MIN `ui -> -> 10 `i `ui 370  ]
+{
+"129
+[; ;main.c: 129:          while(C2 > (BOTON2_MIN + 10)) {
+[e $U 371  ]
+[e :U 372 ]
+{
+"130
+[; ;main.c: 130:             C2 = ADC_GetConversion(hallC2);
+[e = _C2 ( _ADC_GetConversion (1 . `E2919 1 ]
+"131
+[; ;main.c: 131:             dc = C2 - 145;
+[e = _dc -> - -> _C2 `ui -> -> 145 `i `ui `us ]
+"132
+[; ;main.c: 132:             if (dc<DCmin) {dc=DCmin;}
+[e $ ! < -> _dc `ui -> _DCmin `ui 374  ]
+{
+[e = _dc _DCmin ]
+}
+[e :U 374 ]
+"133
+[; ;main.c: 133:             if (dc>DCmaxCCW) {dc=DCmaxCCW;}
+[e $ ! > -> _dc `ui -> _DCmaxCCW `ui 375  ]
 {
 [e = _dc _DCmaxCCW ]
 }
-[e :U 368 ]
-"99
-[; ;main.c: 99:             PWM1_LoadDutyValue(dc);
+[e :U 375 ]
+"134
+[; ;main.c: 134:             PWM1_LoadDutyValue(dc);
 [e ( _PWM1_LoadDutyValue (1 _dc ]
-"100
-[; ;main.c: 100:          }
+"135
+[; ;main.c: 135:          }
 }
-[e :U 364 ]
-"93
-[; ;main.c: 93:          while(C2 > (C2i + 3)) {
-[e $ > -> _C2 `ui + -> _C2i `ui -> -> 3 `i `ui 365  ]
-[e :U 366 ]
-"101
-[; ;main.c: 101:       }
+[e :U 371 ]
+"129
+[; ;main.c: 129:          while(C2 > (BOTON2_MIN + 10)) {
+[e $ > -> _C2 `ui + -> _BOTON2_MIN `ui -> -> 10 `i `ui 372  ]
+[e :U 373 ]
+"136
+[; ;main.c: 136:       }
 }
-[e $U 369  ]
-"102
-[; ;main.c: 102:       else {
-[e :U 363 ]
+[e $U 376  ]
+"137
+[; ;main.c: 137:       else {
+[e :U 370 ]
 {
-"103
-[; ;main.c: 103:          dc = 375;
+"138
+[; ;main.c: 138:          dc = 375;
 [e = _dc -> -> 375 `i `us ]
-"104
-[; ;main.c: 104:       }
+"139
+[; ;main.c: 139:       }
 }
+[e :U 376 ]
 [e :U 369 ]
-[e :U 362 ]
-"105
-[; ;main.c: 105:       PWM1_LoadDutyValue(dc);
+"140
+[; ;main.c: 140:       PWM1_LoadDutyValue(dc);
 [e ( _PWM1_LoadDutyValue (1 _dc ]
-"107
-[; ;main.c: 107:  }
+"142
+[; ;main.c: 142:  }
 }
-[e :U 353 ]
-[e $U 354  ]
-[e :U 355 ]
-"108
-[; ;main.c: 108: }
+[e :U 360 ]
+[e $U 361  ]
+[e :U 362 ]
+"143
+[; ;main.c: 143: }
 [e :UE 349 ]
 }

@@ -3,14 +3,6 @@
 [d edition pro ]
 [d chip 16F1503 ]
 [d frameptr 6 ]
-"63 /home/mirko/MPLABXProjects/Taladro.X/main.c
-[e E2919 . `uc
-hallC1 5
-hallC2 6
-channel_Temp 29
-channel_DAC 30
-channel_FVR 31
-]
 "88 /home/mirko/MPLABXProjects/Taladro.X/mcc_generated_files/adc.c
 [e E2576 . `uc
 hallC1 5
@@ -19,14 +11,27 @@ channel_Temp 29
 channel_DAC 30
 channel_FVR 31
 ]
+"64 /home/mirko/MPLABXProjects/Taladro.X/main.c
+[e E2919 . `uc
+hallC1 5
+hallC2 6
+channel_Temp 29
+channel_DAC 30
+channel_FVR 31
+]
+"8 /home/mirko/MPLABXProjects/Taladro.X/nonvolatile.c
+[e E36 . `uc
+DATOS_VALIDOS 0
+DATOS_DEFAULT 1
+]
 "5 /opt/microchip/xc8/v2.40/pic/sources/c99/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "10 /opt/microchip/xc8/v2.40/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 /opt/microchip/xc8/v2.40/pic/sources/c99/common/Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"51 /home/mirko/MPLABXProjects/Taladro.X/main.c
-[v _main main `(v  1 e 1 0 ]
+"53 /home/mirko/MPLABXProjects/Taladro.X/main.c
+[v _main main `(i  1 e 2 0 ]
 "67 /home/mirko/MPLABXProjects/Taladro.X/mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
 "115
@@ -51,7 +56,11 @@ channel_FVR 31
 [v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
 "62 /home/mirko/MPLABXProjects/Taladro.X/mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
-[s S197 . 1 `uc 1 IOCIF 1 0 :1:0 
+"5 /home/mirko/MPLABXProjects/Taladro.X/nonvolatile.c
+[v _save_to_nonvolatile save_to_nonvolatile `(v  1 e 1 0 ]
+"17
+[v _read_from_nonvolatile read_from_nonvolatile `(c  1 e 1 0 ]
+[s S159 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -61,14 +70,14 @@ channel_FVR 31
 `uc 1 GIE 1 0 :1:7 
 ]
 "375 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC12-16F1xxx_DFP/1.3.90/xc8/pic/include/proc/pic16f1503.h
-[s S206 . 1 `uc 1 . 1 0 :2:0 
+[s S168 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S211 . 1 `S197 1 . 1 0 `S206 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES211  1 e 1 @11 ]
-[s S128 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S173 . 1 `S159 1 . 1 0 `S168 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES173  1 e 1 @11 ]
+[s S90 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -77,20 +86,20 @@ channel_FVR 31
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "546
-[u S136 . 1 `S128 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES136  1 e 1 @17 ]
+[u S98 . 1 `S90 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES98  1 e 1 @17 ]
 "851
 [v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
 "871
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
 "891
 [v _T2CON T2CON `VEuc  1 e 1 @28 ]
-[s S148 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S110 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "912
-[s S152 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S114 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -98,13 +107,13 @@ channel_FVR 31
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S160 . 1 `S148 1 . 1 0 `S152 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES160  1 e 1 @28 ]
+[u S122 . 1 `S110 1 . 1 0 `S114 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES122  1 e 1 @28 ]
 "962
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1012
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
-[s S336 . 1 `uc 1 PS 1 0 :3:0 
+[s S298 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 TMR0SE 1 0 :1:4 
 `uc 1 TMR0CS 1 0 :1:5 
@@ -112,15 +121,15 @@ channel_FVR 31
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "1197
-[s S343 . 1 `uc 1 PS0 1 0 :1:0 
+[s S305 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S350 . 1 `S336 1 . 1 0 `S343 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES350  1 e 1 @149 ]
+[u S312 . 1 `S298 1 . 1 0 `S305 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES312  1 e 1 @149 ]
 "1314
 [v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
 "1373
@@ -131,12 +140,12 @@ channel_FVR 31
 [v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
 "1519
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
-[s S76 . 1 `uc 1 ADON 1 0 :1:0 
+[s S34 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
 "1544
-[s S80 . 1 `uc 1 . 1 0 :1:0 
+[s S38 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -144,11 +153,11 @@ channel_FVR 31
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S88 . 1 `uc 1 . 1 0 :1:0 
+[s S46 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[u S91 . 1 `S76 1 . 1 0 `S80 1 . 1 0 `S88 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES91  1 e 1 @157 ]
+[u S49 . 1 `S34 1 . 1 0 `S38 1 . 1 0 `S46 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES49  1 e 1 @157 ]
 "1599
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
 "1646
@@ -173,7 +182,7 @@ channel_FVR 31
 [v _PMDATL PMDATL `VEuc  1 e 1 @403 ]
 "2487
 [v _PMDATH PMDATH `VEuc  1 e 1 @404 ]
-[s S231 . 1 `uc 1 RD 1 0 :1:0 
+[s S193 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -182,8 +191,8 @@ channel_FVR 31
 `uc 1 CFGS 1 0 :1:6 
 ]
 "2523
-[u S239 . 1 `S231 1 . 1 0 ]
-[v _PMCON1bits PMCON1bits `VES239  1 e 1 @405 ]
+[u S201 . 1 `S193 1 . 1 0 ]
+[v _PMCON1bits PMCON1bits `VES201  1 e 1 @405 ]
 "2563
 [v _PMCON2 PMCON2 `VEuc  1 e 1 @406 ]
 "2604
@@ -194,23 +203,77 @@ channel_FVR 31
 [v _PWM1DCH PWM1DCH `VEuc  1 e 1 @1554 ]
 "4082
 [v _PWM1CON PWM1CON `VEuc  1 e 1 @1555 ]
-"51 /home/mirko/MPLABXProjects/Taladro.X/main.c
-[v _main main `(v  1 e 1 0 ]
+"3 /home/mirko/MPLABXProjects/Taladro.X/constantes.c
+[v _BOTON1_MAX BOTON1_MAX `us  1 e 2 0 ]
+"4
+[v _BOTON1_MIN BOTON1_MIN `us  1 e 2 0 ]
+"5
+[v _BOTON2_MAX BOTON2_MAX `us  1 e 2 0 ]
+"6
+[v _BOTON2_MIN BOTON2_MIN `us  1 e 2 0 ]
+"53 /home/mirko/MPLABXProjects/Taladro.X/main.c
+[v _main main `(i  1 e 2 0 ]
 {
-"61
-[v main@i i `i  1 a 2 0 ]
-"56
-[v main@dc dc `us  1 a 2 14 ]
-"57
-[v main@C2i C2i `us  1 a 2 12 ]
-[v main@C1i C1i `us  1 a 2 10 ]
-[v main@C2 C2 `us  1 a 2 8 ]
-[v main@C1 C1 `us  1 a 2 6 ]
+"92
+[v main@i_387 i `i  1 a 2 36 ]
+"70
+[v main@i i `i  1 a 2 34 ]
+"69
+[v main@C2p C2p `us  1 a 2 40 ]
+"68
+[v main@C1p C1p `us  1 a 2 38 ]
 "59
-[v main@C2s C2s `us  1 a 2 4 ]
+[v main@dc dc `us  1 a 2 46 ]
+"60
+[v main@C2 C2 `us  1 a 2 44 ]
+[v main@C1 C1 `us  1 a 2 42 ]
+"143
+} 0
+"5 /home/mirko/MPLABXProjects/Taladro.X/nonvolatile.c
+[v _save_to_nonvolatile save_to_nonvolatile `(v  1 e 1 0 ]
+{
+"6
+[v save_to_nonvolatile@bloque bloque `[16]us  1 a 32 0 ]
+"5
+[v save_to_nonvolatile@F57 F57 `[16]us  1 s 32 F57 ]
+"15
+} 0
+"94 /home/mirko/MPLABXProjects/Taladro.X/mcc_generated_files/memory.c
+[v _FLASH_WriteBlock FLASH_WriteBlock `(c  1 e 1 0 ]
+{
+"96
+[v FLASH_WriteBlock@blockStartAddr blockStartAddr `us  1 a 2 9 ]
+"98
+[v FLASH_WriteBlock@i i `uc  1 a 1 12 ]
+"97
+[v FLASH_WriteBlock@GIEBitValue GIEBitValue `uc  1 a 1 11 ]
+"94
+[v FLASH_WriteBlock@writeAddr writeAddr `us  1 p 2 3 ]
+[v FLASH_WriteBlock@flashWordArray flashWordArray `*.4us  1 p 1 5 ]
+"146
+} 0
+"148
+[v _FLASH_EraseBlock FLASH_EraseBlock `(v  1 e 1 0 ]
+{
+"150
+[v FLASH_EraseBlock@GIEBitValue GIEBitValue `uc  1 a 1 2 ]
+"148
+[v FLASH_EraseBlock@startAddr startAddr `us  1 p 2 0 ]
+"173
+} 0
+"17 /home/mirko/MPLABXProjects/Taladro.X/nonvolatile.c
+[v _read_from_nonvolatile read_from_nonvolatile `(c  1 e 1 0 ]
+{
+"28
+} 0
+"58 /home/mirko/MPLABXProjects/Taladro.X/mcc_generated_files/memory.c
+[v _FLASH_ReadWord FLASH_ReadWord `(us  1 e 2 0 ]
+{
+"60
+[v FLASH_ReadWord@GIEBitValue GIEBitValue `uc  1 a 1 2 ]
 "58
-[v main@C1s C1s `us  1 a 2 2 ]
-"108
+[v FLASH_ReadWord@flashAddr flashAddr `us  1 p 2 0 ]
+"73
 } 0
 "5 /opt/microchip/xc8/v2.40/pic/sources/c99/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]

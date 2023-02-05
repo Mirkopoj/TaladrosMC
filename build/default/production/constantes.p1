@@ -1,0 +1,25 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"3 constantes.c
+[; ;constantes.c: 3: uint16_t BOTON1_MAX = 656;
+[v _BOTON1_MAX `us ~T0 @X0 1 e ]
+[i _BOTON1_MAX
+-> -> 656 `i `us
+]
+"4
+[; ;constantes.c: 4: uint16_t BOTON1_MIN = 542;
+[v _BOTON1_MIN `us ~T0 @X0 1 e ]
+[i _BOTON1_MIN
+-> -> 542 `i `us
+]
+"5
+[; ;constantes.c: 5: uint16_t BOTON2_MAX = 656;
+[v _BOTON2_MAX `us ~T0 @X0 1 e ]
+[i _BOTON2_MAX
+-> -> 656 `i `us
+]
+"6
+[; ;constantes.c: 6: uint16_t BOTON2_MIN = 542;
+[v _BOTON2_MIN `us ~T0 @X0 1 e ]
+[i _BOTON2_MIN
+-> -> 542 `i `us
+]

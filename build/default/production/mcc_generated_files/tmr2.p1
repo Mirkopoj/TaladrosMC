@@ -475,8 +475,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _TMR2_Initialize ]
 [f ]
 "67
-[; ;mcc_generated_files/tmr2.c: 67:     PR2 = 0x7F;
-[e = _PR2 -> -> 127 `i `uc ]
+[; ;mcc_generated_files/tmr2.c: 67:     PR2 = 0x7D;
+[e = _PR2 -> -> 125 `i `uc ]
 "70
 [; ;mcc_generated_files/tmr2.c: 70:     TMR2 = 0x00;
 [e = _TMR2 -> -> 0 `i `uc ]

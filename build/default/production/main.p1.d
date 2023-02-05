@@ -6,4 +6,6 @@ mcc_generated_files/pin_manager.h  \
 mcc_generated_files/pwm1.h  \
 mcc_generated_files/memory.h  \
 mcc_generated_files/tmr2.h  \
-mcc_generated_files/adc.h 
+mcc_generated_files/adc.h  \
+constantes.h  \
+nonvolatile.h 

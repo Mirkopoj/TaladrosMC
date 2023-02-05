@@ -4447,10 +4447,10 @@ extern __bank0 __bit __timeout;
     PWM1CON = 0xC0;
 
 
-    PWM1DCH = 0x3F;
+    PWM1DCH = 0x5D;
 
 
-    PWM1DCL = 0xC0;
+    PWM1DCL = 0x80;
 
  }
 

@@ -1,0 +1,114 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"8 nonvolatile.c
+[; ;nonvolatile.c: 8:  bloque[0] = DATOS_VALIDOS;
+[c E36 0 1 .. ]
+[n E36 . DATOS_VALIDOS DATOS_DEFAULT  ]
+"6 ./constantes.h
+[; ;./constantes.h: 6: extern uint16_t BOTON1_MAX;
+[v _BOTON1_MAX `us ~T0 @X0 0 e ]
+"7
+[; ;./constantes.h: 7: extern uint16_t BOTON1_MIN;
+[v _BOTON1_MIN `us ~T0 @X0 0 e ]
+"8
+[; ;./constantes.h: 8: extern uint16_t BOTON2_MAX;
+[v _BOTON2_MAX `us ~T0 @X0 0 e ]
+"9
+[; ;./constantes.h: 9: extern uint16_t BOTON2_MIN;
+[v _BOTON2_MIN `us ~T0 @X0 0 e ]
+"164 ./mcc_generated_files/memory.h
+[; ;./mcc_generated_files/memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[v _FLASH_WriteBlock `(c ~T0 @X0 0 ef2`us`*us ]
+"99
+[; ;./mcc_generated_files/memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[v _FLASH_ReadWord `(us ~T0 @X0 0 ef1`us ]
+"5 nonvolatile.c
+[; ;nonvolatile.c: 5: void save_to_nonvolatile(){
+[v _save_to_nonvolatile `(v ~T0 @X0 1 ef ]
+{
+[e :U _save_to_nonvolatile ]
+[f ]
+[v F57 `us ~T0 @X0 -> 16 `i s ]
+[i F57
+:U ..
+"6
+[; ;nonvolatile.c: 6:  uint16_t bloque[16] = {[0 ... 15] = 0xFF};
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+-> -> 255 `i `us
+..
+]
+[v _bloque `us ~T0 @X0 -> 16 `i a ]
+[e = _bloque F57 ]
+"8
+[; ;nonvolatile.c: 8:  bloque[0] = DATOS_VALIDOS;
+[e = *U + &U _bloque * -> -> -> 0 `i `ui `ux -> -> # *U &U _bloque `ui `ux -> . `E36 0 `us ]
+"9
+[; ;nonvolatile.c: 9:  bloque[1] = BOTON1_MAX;
+[e = *U + &U _bloque * -> -> -> 1 `i `ui `ux -> -> # *U &U _bloque `ui `ux _BOTON1_MAX ]
+"10
+[; ;nonvolatile.c: 10:  bloque[2] = BOTON1_MIN;
+[e = *U + &U _bloque * -> -> -> 2 `i `ui `ux -> -> # *U &U _bloque `ui `ux _BOTON1_MIN ]
+"11
+[; ;nonvolatile.c: 11:  bloque[3] = BOTON2_MAX;
+[e = *U + &U _bloque * -> -> -> 3 `i `ui `ux -> -> # *U &U _bloque `ui `ux _BOTON2_MAX ]
+"12
+[; ;nonvolatile.c: 12:  bloque[4] = BOTON2_MIN;
+[e = *U + &U _bloque * -> -> -> 4 `i `ui `ux -> -> # *U &U _bloque `ui `ux _BOTON2_MIN ]
+"14
+[; ;nonvolatile.c: 14:  FLASH_WriteBlock(0x100, bloque);
+[e ( _FLASH_WriteBlock (2 , -> -> 256 `i `us &U _bloque ]
+"15
+[; ;nonvolatile.c: 15: }
+[e :UE 1 ]
+}
+"17
+[; ;nonvolatile.c: 17: int8_t read_from_nonvolatile(){
+[v _read_from_nonvolatile `(c ~T0 @X0 1 ef ]
+{
+[e :U _read_from_nonvolatile ]
+[f ]
+"18
+[; ;nonvolatile.c: 18:  if (FLASH_ReadWord(0x100)==DATOS_DEFAULT) {
+[e $ ! == -> ( _FLASH_ReadWord (1 -> -> 256 `i `us `ui -> . `E36 1 `ui 3  ]
+{
+"19
+[; ;nonvolatile.c: 19:   return 1;
+[e ) -> -> 1 `i `c ]
+[e $UE 2  ]
+"20
+[; ;nonvolatile.c: 20:  }
+}
+[e :U 3 ]
+"22
+[; ;nonvolatile.c: 22:  BOTON1_MAX = FLASH_ReadWord(0x100 +1);
+[e = _BOTON1_MAX ( _FLASH_ReadWord (1 -> + -> 256 `i -> 1 `i `us ]
+"23
+[; ;nonvolatile.c: 23:  BOTON1_MIN = FLASH_ReadWord(0x100 +2);
+[e = _BOTON1_MIN ( _FLASH_ReadWord (1 -> + -> 256 `i -> 2 `i `us ]
+"24
+[; ;nonvolatile.c: 24:  BOTON2_MAX = FLASH_ReadWord(0x100 +3);
+[e = _BOTON2_MAX ( _FLASH_ReadWord (1 -> + -> 256 `i -> 3 `i `us ]
+"25
+[; ;nonvolatile.c: 25:  BOTON2_MIN = FLASH_ReadWord(0x100 +4);
+[e = _BOTON2_MIN ( _FLASH_ReadWord (1 -> + -> 256 `i -> 4 `i `us ]
+"27
+[; ;nonvolatile.c: 27:  return 0;
+[e ) -> -> 0 `i `c ]
+[e $UE 2  ]
+"28
+[; ;nonvolatile.c: 28: }
+[e :UE 2 ]
+}

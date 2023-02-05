@@ -2,7 +2,12 @@
 #define NONVOLATILE_H
 #include <stdint.h>
 
-#define HIGH_ENDURANCE_ADDR 0x100 //Ver el address real
+#define HIGH_ENDURANCE_ADDR 0x100 //Ver el address real 
+
+enum {
+	DATOS_VALIDOS,
+	DATOS_DEFAULT
+};
 
 /*
  * Guarde el valor de las globales en memoria no volatil
