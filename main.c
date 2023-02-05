@@ -41,6 +41,7 @@
     SOFTWARE.
 */
 
+#include "calibracion.h"
 #include "mcc_generated_files/mcc.h"
 #include <stdint.h>
 #include "constantes.h"
@@ -52,59 +53,14 @@
 int main(void) {
 
 	SYSTEM_Initialize();
-      read_from_nonvolatile();
+	read_from_nonvolatile();
 	__delay_ms(200);
 
-	struct botones_t botones;
+	struct botones_t botones = leer_botones();
 
-	botones = leer_botones();
-   
-   if (botones.boton1 > 575 && botones.boton2 > 575) {
-      int16_t C1p = 0;
-      int16_t C2p = 0;
-      for (int i=0;i<5;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
-      }
-      BOTON1_MAX = C1p/5;
-      BOTON2_MAX = C2p/5;
-      
-      PWM1_LoadDutyValue(DCmaxBoton1);
-      __delay_ms(2000);
-      PWM1_LoadDutyValue(DCmaxBoton2);
-      __delay_ms(2000);
-      PWM1_LoadDutyValue(DCmin);
-      
-      C1p = 0;
-      C2p = 0;
-       
-      while (botones.boton1 > 550 || botones.boton2 > 550) {
-			botones = leer_botones();
-      }
-      __delay_ms(2000);
-      
-      for (int i=0;i<5;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
-      }
-      BOTON1_MIN = C1p/5;
-      BOTON2_MIN = C2p/5;
-      
-      PWM1_LoadDutyValue(DCmaxBoton1);
-      __delay_ms(2000);
-      PWM1_LoadDutyValue(DCmaxBoton2);
-      __delay_ms(2000);
-      PWM1_LoadDutyValue(DCmin);
-      
-      save_to_nonvolatile();
-      
-   }
+	calibrar(botones);
 
-	int16_t a1;
-	int16_t b1;
-	int16_t a2;
-	int16_t b2;
-
+	int16_t a1, b1, a2, b2;
 	linear_map_init(&a1, &b1, Boton_1);
 	linear_map_init(&a2, &b2, Boton_2);
    
