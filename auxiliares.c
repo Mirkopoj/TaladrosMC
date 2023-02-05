@@ -21,5 +21,19 @@ void clamp(int16_t *var, enum boton bot){
 	}
 }
 
-void linear_map_init(int16_t *a, int16_t *b);
+void linear_map_init(int16_t *a, int16_t *b, enum boton bot){
+	int32_t DCmin_S = DCmin<<5;
+
+	switch (bot) {
+		case Boton_1:
+				*a = (((int32_t)DCmaxBoton1<<5) - DCmin_S)/(BOTON1_MAX - BOTON1_MIN);
+				*b = DCmin_S - BOTON1_MIN * *a;
+			break;
+		case Boton_2:
+			*a = (((int32_t)DCmaxBoton2<<5) - DCmin_S)/(BOTON2_MAX - BOTON2_MIN);
+			*b = DCmin_S - BOTON2_MIN * *a;
+			break;
+	}
+}
+
 int16_t linear_map(int16_t *a, int16_t *b, int16_t x);

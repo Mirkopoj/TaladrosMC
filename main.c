@@ -109,16 +109,8 @@ int main(void) {
 	int16_t a2;
 	int16_t b2;
 
-	{
-		int32_t DCmaxCW_S = DCmaxBoton1<<5;
-		int32_t DCmaxCCW_S = DCmaxBoton2<<5;
-		int32_t DCmin_S = DCmin<<5;
-
-		a1 = (DCmaxCW_S - DCmin_S)/(BOTON1_MAX - BOTON1_MIN);
-		b1 = DCmin_S - BOTON1_MIN * a1;
-		a2 = (DCmaxCCW_S - DCmin_S)/(BOTON2_MAX - BOTON2_MIN);
-		b2 = DCmin_S - BOTON2_MIN * a2;
-	}
+	linear_map_init(&a1, &b1, Boton_1);
+	linear_map_init(&a2, &b2, Boton_2);
    
    __delay_ms(200);
 
