@@ -46,6 +46,7 @@
 #include "constantes.h"
 #include "nonvolatile.h"
 #include "match.h"
+#include "auxiliares.h"
 
 
 int main(void) {
@@ -128,6 +129,7 @@ int main(void) {
       
 		match(C1, C2) {
 			case NingunBoton:
+			case AmbosBotones:
 				dc = 375;
 				break;
 
@@ -135,13 +137,7 @@ int main(void) {
 				while(C1 > (BOTON1_MIN + DCHumbral)) {
 					C1 = ADC_GetConversion(hallC1);
 					dc = ((int32_t)C1 * a1 + b1)>>5;
-#ifdef SYSTEM_5
-					if (dc<DCmaxBoton1){dc=DCmaxBoton1;}
-					if (dc>DCmin){dc=DCmin;}
-#else
-					if (dc>DCmaxBoton1){dc=DCmaxBoton1;}
-					if (dc<DCmin){dc=DCmin;}
-#endif 
+					clamp(&dc, Boton_1);
 					PWM1_LoadDutyValue(dc);
 				}
 				break;
@@ -150,13 +146,9 @@ int main(void) {
 				while(C2 > (BOTON2_MIN + DCHumbral)) {
 					C2 = ADC_GetConversion(hallC2);
 					dc = ((int32_t)C2 * a2 + b2)>>5;
-					if (dc<DCmin) {dc=DCmin;}
-					if (dc>DCmaxBoton2) {dc=DCmaxBoton2;}
+					clamp(&dc, Boton_2);
 					PWM1_LoadDutyValue(dc);
 				}
-				break;
-
-			case AmbosBotones:
 				break;
 		}
 
