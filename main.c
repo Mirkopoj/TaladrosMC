@@ -55,12 +55,11 @@ int main(void) {
       read_from_nonvolatile();
 	__delay_ms(200);
 
-	int16_t C1, C2;
+	struct botones_t botones;
 
-   C1 = ADC_GetConversion(hallC1);
-   C2 = ADC_GetConversion(hallC2);
+	botones = leer_botones();
    
-   if (C1 > 575 && C2 > 575) {
+   if (botones.boton1 > 575 && botones.boton2 > 575) {
       int16_t C1p = 0;
       int16_t C2p = 0;
       for (int i=0;i<5;i++){
@@ -79,9 +78,8 @@ int main(void) {
       C1p = 0;
       C2p = 0;
        
-      while (C1 > 550 || C2 > 550) {
-         C1 = ADC_GetConversion(hallC1);
-         C2 = ADC_GetConversion(hallC2);
+      while (botones.boton1 > 550 || botones.boton2 > 550) {
+			botones = leer_botones();
       }
       __delay_ms(2000);
       
@@ -101,8 +99,6 @@ int main(void) {
       save_to_nonvolatile();
       
    }
-   
-	int16_t dc;
 
 	int16_t a1;
 	int16_t b1;
@@ -116,13 +112,12 @@ int main(void) {
 
 	while (1) {
 
-      C1 = ADC_GetConversion(hallC1);
-      C2 = ADC_GetConversion(hallC2);
+		botones = leer_botones();
       
-		match(C1, C2) {
+		match(botones) {
 			case NingunBoton:
 			case AmbosBotones:
-				dc = 375;
+				parar_motor();
 				break;
 
 			case Boton1: 
@@ -134,7 +129,6 @@ int main(void) {
 				break;
 		}
 
-      PWM1_LoadDutyValue(dc);
 	  
 	}
 }

@@ -3,6 +3,11 @@
 
 #include <stdint.h>
 
+struct botones_t {
+	int16_t boton1;
+	int16_t boton2;
+};
+
 extern uint16_t BOTON1_MAX;
 extern uint16_t BOTON1_MIN;
 extern uint16_t BOTON2_MAX;

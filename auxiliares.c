@@ -67,3 +67,15 @@ void boton_loop(enum boton bot, int16_t a, int16_t b){
 		PWM1_LoadDutyValue(dc);
 	} while (presion_en_el_boton > presion_minima);
 }
+
+struct botones_t leer_botones(){
+	struct botones_t ret = {
+		.boton1 = ADC_GetConversion(hallC1),
+		.boton2 = ADC_GetConversion(hallC2)
+	};
+	return ret;
+}
+
+void inline parar_motor(){
+	PWM1_LoadDutyValue(DCmin);
+}
