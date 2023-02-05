@@ -1,5 +1,8 @@
 #include "auxiliares.h"
 #include "constantes.h"
+#include "mcc_generated_files/adc.h"
+#include "mcc_generated_files/pwm1.h"
+#include <stdint.h>
 
 void clamp(int16_t *var, enum boton bot){
 	switch (bot) {
@@ -38,4 +41,29 @@ void linear_map_init(int16_t *a, int16_t *b, enum boton bot){
 
 int16_t inline linear_map(int16_t a, int16_t b, int16_t x){
 	return ((int32_t)x * a + b)>>5;
+}
+
+void boton_loop(enum boton bot, int16_t a, int16_t b){
+	int16_t presion_minima = DCHumbral;
+	adc_channel_t canal_adc;
+	int16_t presion_en_el_boton;
+	int16_t dc;
+
+	switch (bot) {
+		case Boton_1: 
+			presion_minima += BOTON1_MIN;
+			canal_adc = hallC1;
+			break;
+		case Boton_2:
+			presion_minima += BOTON2_MIN;
+			canal_adc = hallC2;
+			break;
+	}
+
+	do {
+		presion_en_el_boton = ADC_GetConversion(canal_adc);
+		dc = linear_map(a, b, presion_en_el_boton);
+		clamp(&dc, bot);
+		PWM1_LoadDutyValue(dc);
+	} while (presion_en_el_boton > presion_minima);
 }

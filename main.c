@@ -126,21 +126,11 @@ int main(void) {
 				break;
 
 			case Boton1: 
-				while(C1 > (BOTON1_MIN + DCHumbral)) {
-					C1 = ADC_GetConversion(hallC1);
-					dc = linear_map(a1, b1, C1);
-					clamp(&dc, Boton_1);
-					PWM1_LoadDutyValue(dc);
-				}
+				boton_loop(Boton_1, a1, b1);
 				break;
 
 			case Boton2:
-				while(C2 > (BOTON2_MIN + DCHumbral)) {
-					C2 = ADC_GetConversion(hallC2);
-					dc = linear_map(a2, b2, C2);
-					clamp(&dc, Boton_2);
-					PWM1_LoadDutyValue(dc);
-				}
+				boton_loop(Boton_2, a2, b2);
 				break;
 		}
 
