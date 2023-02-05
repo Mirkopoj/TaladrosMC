@@ -45,6 +45,7 @@
 #include <stdint.h>
 #include "constantes.h"
 #include "nonvolatile.h"
+#include "match.h"
 
 const int16_t DCmin = 374;
 const int16_t DCmaxBoton1 = //Taladro = Cw,  Sierra = Rapido
@@ -62,14 +63,13 @@ const int16_t DCmaxBoton2 = //Taladro = CCw, Sierra = Lento
 	417
 #endif 
 ;
-const int16_t DCHumbral = //Taladro = 10, Sierra = 3
+const uint16_t DCHumbral = //Taladro = 10, Sierra = 3
 #ifdef SYSTEM_5
 	10
 #else
 	3
 #endif 
 ;
-
 
 int main(void) {
 
@@ -145,36 +145,44 @@ int main(void) {
    __delay_ms(200);
 
 	while (1) {
+
       C1 = ADC_GetConversion(hallC1);
       C2 = ADC_GetConversion(hallC2);
       
-      if(C1 > (BOTON1_MIN + DCHumbral)) {
-         while(C1 > (BOTON1_MIN + DCHumbral)) {
-            C1 = ADC_GetConversion(hallC1);
-            dc = ((int32_t)C1 * a1 + b1)>>5;
-#ifdef SYSTEM_5
-            if (dc<DCmaxBoton1){dc=DCmaxBoton1;}
-            if (dc>DCmin){dc=DCmin;}
-#else
-            if (dc>DCmaxBoton1){dc=DCmaxBoton1;}
-            if (dc<DCmin){dc=DCmin;}
-#endif 
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else if(C2 > (BOTON2_MIN + DCHumbral)) {
+		match(C1, C2) {
+			case NingunBoton:
+				dc = 375;
+				break;
 
-         while(C2 > (BOTON2_MIN + DCHumbral)) {
-            C2 = ADC_GetConversion(hallC2);
-            dc = ((int32_t)C2 * a2 + b2)>>5;
-            if (dc<DCmin) {dc=DCmin;}
-            if (dc>DCmaxBoton2) {dc=DCmaxBoton2;}
-            PWM1_LoadDutyValue(dc);
-         }
-      }
-      else {
-         dc = 375;
-      }
+			case Boton1: 
+				while(C1 > (BOTON1_MIN + DCHumbral)) {
+					C1 = ADC_GetConversion(hallC1);
+					dc = ((int32_t)C1 * a1 + b1)>>5;
+#ifdef SYSTEM_5
+					if (dc<DCmaxBoton1){dc=DCmaxBoton1;}
+					if (dc>DCmin){dc=DCmin;}
+#else
+					if (dc>DCmaxBoton1){dc=DCmaxBoton1;}
+					if (dc<DCmin){dc=DCmin;}
+#endif 
+					PWM1_LoadDutyValue(dc);
+				}
+				break;
+
+			case Boton2:
+				while(C2 > (BOTON2_MIN + DCHumbral)) {
+					C2 = ADC_GetConversion(hallC2);
+					dc = ((int32_t)C2 * a2 + b2)>>5;
+					if (dc<DCmin) {dc=DCmin;}
+					if (dc>DCmaxBoton2) {dc=DCmaxBoton2;}
+					PWM1_LoadDutyValue(dc);
+				}
+				break;
+
+			case AmbosBotones:
+				break;
+		}
+
       PWM1_LoadDutyValue(dc);
 	  
 	}
