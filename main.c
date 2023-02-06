@@ -60,7 +60,8 @@ int main(void) {
 
 	calibrar(botones);
 
-	int16_t a1, b1, a2, b2;
+	int16_t a1, a2;
+	uint16_t b1, b2;
 	linear_map_init(&a1, &b1, Boton_1);
 	linear_map_init(&a2, &b2, Boton_2);
    
