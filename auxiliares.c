@@ -24,7 +24,7 @@ void clamp(int16_t *var, enum boton bot){
 	}
 }
 
-void linear_map_init(int16_t *a, uint16_t *b, enum boton bot){
+void linear_map_init(int16_t *a, int32_t *b, enum boton bot){
 	int32_t DCmin_S = DCmin<<5;
 
 	switch (bot) {
@@ -39,11 +39,11 @@ void linear_map_init(int16_t *a, uint16_t *b, enum boton bot){
 	}
 }
 
-int16_t inline linear_map(int16_t a, uint16_t b, int16_t x){
+int16_t inline linear_map(int16_t a, int32_t b, int16_t x){
 	return ((int32_t)x * a + b)>>5;
 }
 
-void boton_loop(enum boton bot, int16_t a, uint16_t b){
+void boton_loop(enum boton bot, int16_t a, int32_t b){
 	int16_t presion_minima = DCHumbral;
 	adc_channel_t canal_adc;
 	int16_t presion_en_el_boton;
