@@ -54,7 +54,7 @@ int main(void) {
 
 	SYSTEM_Initialize();
 	read_from_nonvolatile();
-	__delay_ms(200);
+	__delay_ms(1000);
 
 	struct botones_t botones = leer_botones();
 
