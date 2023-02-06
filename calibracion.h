@@ -3,7 +3,7 @@
 
 #include "constantes.h"
 
-#define T_GIRO_MOTOR				2000	//[ms]
+#define T_GIRO_MOTOR				200	//[ms]
 #define T_PARA_SOLTAR_BOTONES 2000	//[ms]
 
 #define V_MODO_CALIBRACION		575	//[V/1024]
