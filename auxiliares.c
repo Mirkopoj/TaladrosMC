@@ -4,7 +4,7 @@
 #include "mcc_generated_files/pwm1.h"
 #include <stdint.h>
 
-void clamp(int16_t *var, enum boton bot){
+void clamp(uint16_t *var, enum boton bot){
 	switch (bot) {
 		case Boton_1:
 #ifdef SYSTEM_5
@@ -29,25 +29,25 @@ void linear_map_init(int16_t *a, int32_t *b, enum boton bot){
 
 	switch (bot) {
 		case Boton_1: 
-			*a = (((int32_t)DCmaxBoton1<<SHIFT_LINEAR_MAP) - DCmin_S)/(BOTON1_MAX - BOTON1_MIN);
+			*a = (int16_t)((((int32_t)DCmaxBoton1<<SHIFT_LINEAR_MAP) - DCmin_S)/(BOTON1_MAX - BOTON1_MIN));
 			*b = DCmin_S - BOTON1_MIN * (int32_t)*a;
 			break;
 		case Boton_2:
-			*a = (((int32_t)DCmaxBoton2<<SHIFT_LINEAR_MAP) - DCmin_S)/(BOTON2_MAX - BOTON2_MIN);
+			*a = (int16_t)((((int32_t)DCmaxBoton2<<SHIFT_LINEAR_MAP) - DCmin_S)/(BOTON2_MAX - BOTON2_MIN));
 			*b = DCmin_S - BOTON2_MIN * (int32_t)*a;
 			break;
 	}
 }
 
-int16_t inline linear_map(int16_t a, int32_t b, int16_t x){
-	return ((int32_t)x * a + b)>>SHIFT_LINEAR_MAP;
+uint16_t inline linear_map(int16_t a, int32_t b, uint16_t x){
+	return (uint16_t)(((int32_t)x * a + b)>>SHIFT_LINEAR_MAP);
 }
 
 void boton_loop(enum boton bot, int16_t a, int32_t b){
-	int16_t presion_minima = DCHumbral;
+	uint16_t presion_minima = DCHumbral;
 	adc_channel_t canal_adc;
-	int16_t presion_en_el_boton;
-	int16_t dc;
+	uint16_t presion_en_el_boton;
+	uint16_t dc;
 
 	switch (bot) {
 		case Boton_1: 

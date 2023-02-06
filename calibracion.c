@@ -8,8 +8,8 @@
 #include <stdint.h>
 
 void guardar_valor_actual(uint16_t *boton1, uint16_t *boton2){
-      int16_t C1p = 0;
-      int16_t C2p = 0;
+      uint16_t C1p = 0;
+      uint16_t C2p = 0;
 
       for (int i=0;i<N_SAMPLES_AVERAGE;i++){
          C1p += ADC_GetConversion(hallC1);
