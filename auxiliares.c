@@ -8,11 +8,11 @@ void clamp(int16_t *var, enum boton bot){
 	switch (bot) {
 		case Boton_1:
 #ifdef SYSTEM_5
-			if (*var<DCmaxBoton1){*var=DCmaxBoton1;}
-			if (*var>DCmin){*var=DCmin;}
-#else
 			if (*var>DCmaxBoton1){*var=DCmaxBoton1;}
 			if (*var<DCmin){*var=DCmin;}
+#else
+			if (*var<DCmaxBoton1){*var=DCmaxBoton1;}
+			if (*var>DCmin){*var=DCmin;}
 #endif 
 			break;
 
