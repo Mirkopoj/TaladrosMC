@@ -77,5 +77,5 @@ struct botones_t leer_botones(){
 }
 
 void inline parar_motor(){
-	PWM1_LoadDutyValue(DCmin);
+	PWM1_LoadDutyValue(DCmaxBoton1);
 }
