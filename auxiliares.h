@@ -10,7 +10,7 @@ enum boton {
 
 void clamp(int16_t *var, enum boton bot);
 
-#define SHIFT_LINEAR_MAP 5
+#define SHIFT_LINEAR_MAP 10
 void linear_map_init(int16_t *a, int32_t *b, enum boton bot);
 int16_t inline linear_map(int16_t a, int32_t b, int16_t x);
 
