@@ -22,5 +22,6 @@ extern const int16_t DCmaxBoton2;
 extern const int16_t DCminBoton2; 
 //Taladro = 10, Sierra = 3
 extern const int16_t DCHumbral; 
+extern const int16_t DCHisteresis; 
 
 #endif // !CONSTS_H

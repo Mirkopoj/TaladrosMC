@@ -41,3 +41,5 @@ const int16_t DCHumbral =
 	10
 #endif 
 ;
+
+const int16_t DCHisteresis = 2;
