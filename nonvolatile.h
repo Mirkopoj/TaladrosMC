@@ -12,7 +12,7 @@ enum {
 /*
  * Guarde el valor de las globales en memoria no volatil
 */
-void save_to_nonvolatile();
+void save_to_nonvolatile(void);
 
 /*
  * Actualiza el valor de las globales en funcion del de 
@@ -27,7 +27,7 @@ void save_to_nonvolatile();
  * escritura de las globales preservando su valor actual.
  *
 */
-int8_t read_from_nonvolatile();
+int8_t read_from_nonvolatile(void);
 
 #endif
 
