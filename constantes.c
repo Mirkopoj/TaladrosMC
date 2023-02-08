@@ -5,8 +5,17 @@ uint16_t BOTON1_MIN = 542; //2,646v
 uint16_t BOTON2_MAX = 656; //3,202v
 uint16_t BOTON2_MIN = 542; //2,646v
 
-const int16_t DCmin = 374;
-const int16_t DCmaxBoton1 = //Taladro = Cw,  Sierra = Rapido
+const int16_t DCidle = 374;
+
+//Taladro = Cw,  Sierra = Rapido
+const int16_t DCminBoton1 = 
+#ifdef SYSTEM_5
+	398
+#else
+	342
+#endif 
+;
+const int16_t DCmaxBoton1 = 
 #ifdef SYSTEM_5
 	500
 #else
@@ -14,14 +23,18 @@ const int16_t DCmaxBoton1 = //Taladro = Cw,  Sierra = Rapido
 #endif 
 ;
 
-const int16_t DCmaxBoton2 = //Taladro = CCw, Sierra = Lento
+//Taladro = CCw,  Sierra = Rapido
+const int16_t DCminBoton2 = 398 ;
+const int16_t DCmaxBoton2 = 
 #ifdef SYSTEM_5
 	417
 #else
 	500
 #endif 
 ;
-const int16_t DCHumbral = //Taladro = 10, Sierra = 3
+
+//Taladro = 10, Sierra = 3
+const int16_t DCHumbral = 
 #ifdef SYSTEM_5
 	3
 #else

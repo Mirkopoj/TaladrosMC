@@ -9,15 +9,15 @@ void clamp(int16_t *var, enum boton bot){
 		case Boton_1:
 #ifdef SYSTEM_5
 			if (*var>DCmaxBoton1){*var=DCmaxBoton1;}
-			if (*var<DCmin){*var=DCmin;}
+			if (*var<DCminBoton1){*var=DCminBoton1;}
 #else
 			if (*var<DCmaxBoton1){*var=DCmaxBoton1;}
-			if (*var>DCmin){*var=DCmin;}
+			if (*var>DCminBoton1){*var=DCminBoton1;}
 #endif 
 			break;
 
 		case Boton_2:
-			if (*var<DCmin) {*var=DCmin;}
+			if (*var<DCminBoton2) {*var=DCminBoton2;}
 			if (*var>DCmaxBoton2) {*var=DCmaxBoton2;}
 			break;
 
@@ -25,16 +25,17 @@ void clamp(int16_t *var, enum boton bot){
 }
 
 void linear_map_init(int16_t *a, int32_t *b, enum boton bot){
-	int32_t DCmin_S = DCmin<<SHIFT_LINEAR_MAP;
+	int32_t DCmin1_S = DCminBoton1<<SHIFT_LINEAR_MAP;
+	int32_t DCmin2_S = DCminBoton1<<SHIFT_LINEAR_MAP;
 
 	switch (bot) {
 		case Boton_1: 
-			*a = (((int32_t)DCmaxBoton1<<SHIFT_LINEAR_MAP) - DCmin_S)/(BOTON1_MAX - BOTON1_MIN);
-			*b = DCmin_S - BOTON1_MIN * (int32_t)*a;
+			*a = (((int32_t)DCmaxBoton1<<SHIFT_LINEAR_MAP) - DCmin1_S)/(BOTON1_MAX - BOTON1_MIN);
+			*b = DCmin1_S - BOTON1_MIN * (int32_t)*a;
 			break;
 		case Boton_2:
-			*a = (((int32_t)DCmaxBoton2<<SHIFT_LINEAR_MAP) - DCmin_S)/(BOTON2_MAX - BOTON2_MIN);
-			*b = DCmin_S - BOTON2_MIN * (int32_t)*a;
+			*a = (((int32_t)DCmaxBoton2<<SHIFT_LINEAR_MAP) - DCmin2_S)/(BOTON2_MAX - BOTON2_MIN);
+			*b = DCmin2_S - BOTON2_MIN * (int32_t)*a;
 			break;
 	}
 }
@@ -77,5 +78,5 @@ struct botones_t leer_botones(){
 }
 
 void inline parar_motor(){
-	PWM1_LoadDutyValue(DCmin);
+	PWM1_LoadDutyValue(DCidle);
 }

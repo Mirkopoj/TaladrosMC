@@ -22,7 +22,7 @@ void guardar_valor_actual(uint16_t *boton1, uint16_t *boton2){
       __delay_ms(T_GIRO_MOTOR);
       PWM1_LoadDutyValue(DCmaxBoton2);
       __delay_ms(T_GIRO_MOTOR);
-      PWM1_LoadDutyValue(DCmin);
+      PWM1_LoadDutyValue(DCidle);
 }
 
 void calibrar(struct botones_t botones){
