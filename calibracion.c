@@ -7,17 +7,17 @@
 #include "nonvolatile.h"
 #include <stdint.h>
 
-void guardar_valor_actual(uint16_t *boton1, uint16_t *boton2){
-      uint16_t C1p = 0;
-      uint16_t C2p = 0;
+void guardar_valor_actual(uint16_t *boton, adc_channel_t hall){
+      uint16_t Cp = 0;
 
       for (int i=0;i<N_SAMPLES_AVERAGE;i++){
-         C1p += ADC_GetConversion(hallC1);
-         C2p += ADC_GetConversion(hallC2);
+         Cp += ADC_GetConversion(hall);
       }
-      *boton1 = C1p/N_SAMPLES_AVERAGE;
-      *boton2 = C2p/N_SAMPLES_AVERAGE;
-      
+
+      *boton = Cp/N_SAMPLES_AVERAGE;
+}
+
+void soltar_boton(){
       PWM1_LoadDutyValue(DCmaxBoton1);
       __delay_ms(T_GIRO_MOTOR);
       PWM1_LoadDutyValue(DCmaxBoton2);
@@ -26,16 +26,20 @@ void guardar_valor_actual(uint16_t *boton1, uint16_t *boton2){
 }
 
 void calibrar(struct botones_t botones){
-   if (botones.boton1 > V_MODO_CALIBRACION && botones.boton2 > V_MODO_CALIBRACION) {
+   if (botones.boton1 > V_MODO_CALIBRACION || botones.boton2 > V_MODO_CALIBRACION) {
 
-		guardar_valor_actual(&BOTON1_MAX, &BOTON2_MAX);
+		if (botones.boton1 > V_MODO_CALIBRACION) guardar_valor_actual(&BOTON1_MAX, hallC1);
+		if (botones.boton2 > V_MODO_CALIBRACION) guardar_valor_actual(&BOTON2_MAX, hallC2);
+		soltar_boton();
       
       while (botones.boton1 > V_SALIR_CALIBRACION || botones.boton2 > V_SALIR_CALIBRACION) {
 			botones = leer_botones();
       }
       __delay_ms(T_PARA_SOLTAR_BOTONES);
       
-		guardar_valor_actual(&BOTON1_MIN, &BOTON2_MIN);
+		guardar_valor_actual(&BOTON1_MAX, hallC1);
+		guardar_valor_actual(&BOTON2_MAX, hallC2);
+		soltar_boton();
       
       save_to_nonvolatile();
       
