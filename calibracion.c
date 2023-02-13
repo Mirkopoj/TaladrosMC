@@ -37,8 +37,8 @@ void calibrar(struct botones_t botones){
       }
       __delay_ms(T_PARA_SOLTAR_BOTONES);
       
-		guardar_valor_actual(&BOTON1_MAX, hallC1);
-		guardar_valor_actual(&BOTON2_MAX, hallC2);
+		guardar_valor_actual(&BOTON1_MIN, hallC1);
+		guardar_valor_actual(&BOTON2_MIN, hallC2);
 		soltar_boton();
       
       save_to_nonvolatile();
